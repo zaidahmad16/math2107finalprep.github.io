@@ -242,6 +242,89 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
   .share-banner{padding:8px 14px;padding-left:60px}
 }
 .katex-display{margin:12px 0!important;overflow-x:auto}
+
+/* ── Dark mode ── */
+html.dark{
+  --bg:#0f0f12;--white:#1a1a20;--surface:#26262e;--border:#35353f;--border-light:#2e2e38;
+  --text:#f2f2f7;--text2:#d1d1d6;--text3:#8e8e93;--text4:#48484a;
+  --blue:#4da3ff;--blue-bg:#0d1f38;
+  --green:#34c77b;--green-bg:#0d2318;
+  --red:#ff6b6b;--red-bg:#2a1010;
+  --amber:#fbbf24;--amber-bg:#2a1f06;
+  --purple:#a78bfa;--purple-bg:#1a1030;
+  --teal:#22d3ee;--teal-bg:#062830;
+}
+html.dark .share-banner{background:#1a1a28;border-bottom:1px solid var(--border)}
+html.dark .score-bar{background:rgba(15,15,18,.92)}
+html.dark .work{background:var(--surface);color:var(--text)}
+html.dark .work:focus{background:#1e1e28}
+html.dark .mem{background:var(--white)}
+html.dark body,html.dark .sidebar,html.dark .main{transition:background .25s,color .25s}
+
+/* ── Dark toggle button ── */
+.dark-toggle{display:flex;align-items:center;gap:7px;width:100%;margin-top:10px;
+  padding:6px 9px;border-radius:var(--rs);border:1px solid var(--border);
+  background:none;cursor:pointer;font-size:12px;font-weight:500;color:var(--text3);
+  transition:background .14s,color .14s,border-color .14s}
+.dark-toggle:hover{background:var(--surface);color:var(--text)}
+.dark-toggle-icon{font-size:14px;line-height:1;flex-shrink:0}
+.dark-toggle-track{margin-left:auto;width:28px;height:16px;border-radius:8px;background:var(--border);
+  position:relative;transition:background .2s;flex-shrink:0}
+.dark-toggle-track::after{content:'';position:absolute;top:2px;left:2px;width:12px;height:12px;
+  border-radius:50%;background:var(--white);transition:transform .2s,background .2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.25)}
+html.dark .dark-toggle-track{background:var(--blue)}
+html.dark .dark-toggle-track::after{transform:translateX(12px)}
+
+/* ── Visual polish ── */
+/* Sidebar active: left accent bar */
+.sb-link{position:relative}
+.sb-link.active::before{content:'';position:absolute;left:-9px;top:50%;transform:translateY(-50%);
+  width:3px;height:14px;border-radius:2px;background:var(--blue)}
+/* Sidebar section label */
+.sb-section-label{display:flex;align-items:center;gap:6px}
+.sb-section-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+/* Progress bar thicker + rounded cap */
+.prog-bar{height:5px;border-radius:3px}
+.prog-fill{border-radius:3px}
+/* Score bar: frosted, floating feel */
+.score-bar{border-top:1px solid var(--border);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+/* Topic heading number: slight shadow */
+.topic-num{box-shadow:0 2px 6px rgba(0,0,0,.18)}
+/* Block cards: subtle left accent */
+.def{border-left:3px solid #93c5fd}
+.thm{border-left:3px solid #6ee7b7}
+.warn{border-left:3px solid #fca5a5}
+.tip{border-left:3px solid #fcd34d}
+.note{border-left:3px solid #c4b5fd}
+/* Recipe: softer */
+.recipe{box-shadow:0 1px 4px rgba(0,0,0,.05)}
+/* Example card */
+.ex{box-shadow:0 1px 4px rgba(0,0,0,.05)}
+/* Smoother reveal button */
+.rev-btn{transition:background .15s,box-shadow .15s}
+.rev-btn:hover{box-shadow:0 1px 4px rgba(0,113,227,.12)}
+/* qcard shadow */
+.qcard{box-shadow:0 1px 4px rgba(0,0,0,.06)}
+/* Checklist checkbox glow */
+.checklist li::before{transition:color .15s}
+/* tf-item hover */
+.tf-item{transition:box-shadow .15s}
+.tf-item:hover{box-shadow:0 2px 8px rgba(0,0,0,.07)}
+/* Audit item hover */
+.audit-item{transition:background .14s}
+.audit-item:hover{background:var(--blue-bg)}
+/* Share banner */
+.share-banner{background:linear-gradient(90deg,#005ec0 0%,#0071e3 100%)}
+/* Summary card */
+.summary-card{box-shadow:0 1px 4px rgba(0,0,0,.05)}
+/* mc choices */
+.mc-choices li{transition:background .13s,transform .1s}
+.mc-choices li:hover{transform:translateX(2px)}
+.choices li{transition:background .13s,transform .1s}
+.choices li:hover{transform:translateX(2px)}
+/* KaTeX smooth overflow */
+.katex-display{border-radius:6px}
 </style>
 </head>
 <body>
@@ -264,6 +347,11 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
   <div class="sb-logo">
     <div class="sb-logo-title">MATH 2107 — Mega Guide</div>
     <div class="sb-logo-sub">Paul Mezo · Carleton · Winter 2026</div>
+    <button class="dark-toggle" id="dark-toggle" onclick="toggleDark()" aria-label="Toggle dark mode">
+      <span class="dark-toggle-icon" id="dark-icon">🌙</span>
+      <span id="dark-label">Dark mode</span>
+      <span class="dark-toggle-track"></span>
+    </button>
   </div>
 
   <div class="sb-section">
@@ -293,9 +381,9 @@ hr{border:none;border-top:1px solid var(--border);margin:24px 0}
     <a href="#s67" class="sb-link" onclick="mark(this)">6.7 Function Spaces</a>
     <a href="#s71" class="sb-link" onclick="mark(this)">7.1 Symmetric &amp; Orth</a>
     <a href="#s72" class="sb-link" onclick="mark(this)">7.2 Spectral Theorem</a>
-    <a href="#s73" class="sb-link" onclick="mark(this)">7.3 Quadratic Forms 🔴NEW</a>
-    <a href="#s74" class="sb-link" onclick="mark(this)">7.4 Pos/Neg Definite 🔴NEW</a>
-    <a href="#s75" class="sb-link" onclick="mark(this)">7.5 Bilinear Forms 🔴NEW</a>
+    <a href="#s73" class="sb-link" onclick="mark(this)">7.3 Quadratic Forms</a>
+    <a href="#s74" class="sb-link" onclick="mark(this)">7.4 Pos/Neg Definite</a>
+    <a href="#s75" class="sb-link" onclick="mark(this)">7.5 Bilinear Forms</a>
     <a href="#proofs" class="sb-link" onclick="mark(this)">★ All Proof Templates</a>
     <a href="#checklist" class="sb-link" onclick="mark(this)">✓ Final Checklist</a>
   </div>
@@ -1743,6 +1831,14 @@ function closeSidebar(){document.querySelector('.sidebar').classList.remove('ope
 document.querySelectorAll('.sb-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=768)closeSidebar();}));
 // Copy link
 function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>{const b=document.querySelector('.share-btn');const orig=b.textContent;b.textContent='Copied!';setTimeout(()=>b.textContent=orig,2000);}).catch(()=>{prompt('Share this link:',window.location.href);});}
+// Dark mode
+function applyDark(on){
+  document.documentElement.classList.toggle('dark',on);
+  document.getElementById('dark-icon').textContent=on?'☀️':'🌙';
+  document.getElementById('dark-label').textContent=on?'Light mode':'Dark mode';
+}
+function toggleDark(){const on=!document.documentElement.classList.contains('dark');applyDark(on);localStorage.setItem('dm',on?'1':'0');}
+(function(){const saved=localStorage.getItem('dm');const prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;applyDark(saved!==null?saved==='1':prefersDark);})();
 </script>
 </body>
 </html>
