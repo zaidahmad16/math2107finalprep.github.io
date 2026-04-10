@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATH 2107 — Course Resources</title>
+<meta name="description" content="Past homework, lecture notes, and quiz/midterm solutions for MATH 2107 — Paul Mezo · Carleton University · Winter 2026.">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafafa;--white:#ffffff;--surface:#f0f0f5;--border:#e0e0e8;--border-light:#ebebf0;
+  --text:#1c1c1e;--text2:#3a3a3c;--text3:#636366;--text4:#aeaeb2;
+  --blue:#0071e3;--blue-bg:#ebf3fd;--green:#1c7c4a;--green-bg:#eaf4f0;
+  --red:#c0392b;--red-bg:#fdf0ee;--amber:#92400e;--amber-bg:#fffbeb;
+  --purple:#5b21b6;--purple-bg:#f5f0ff;--teal:#0e7490;--teal-bg:#ecfeff;
+  --r:10px;--rs:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
+  font-size:15px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--white);border-right:1px solid var(--border);padding:0 0 60px;scrollbar-width:thin}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.main{flex:1;min-width:0;max-width:860px;padding:0 40px 140px}
+.sb-logo{padding:20px 20px 14px;border-bottom:1px solid var(--border)}
+.sb-logo-title{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.2px}
+.sb-logo-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.sb-section{padding:12px 20px 4px}
+.sb-section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text4);margin-bottom:6px}
+.sb-link{display:block;font-size:12px;color:var(--text3);text-decoration:none;padding:4px 8px;
+  border-radius:var(--rs);margin-bottom:1px;transition:all .12s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-link:hover{background:var(--surface);color:var(--text)}
+.sb-link.active{background:var(--blue-bg);color:var(--blue);font-weight:500}
+.page-hd{padding:44px 0 32px;border-bottom:1px solid var(--border);margin-bottom:0}
+.page-hd-eyebrow{font-size:12px;font-weight:500;color:var(--text3);margin-bottom:8px}
+.page-hd h1{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:10px}
+.page-hd p{font-size:14px;color:var(--text3);line-height:1.6;max-width:580px}
+.hd-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
+.tag-blue{background:var(--blue-bg);color:var(--blue)}.tag-green{background:var(--green-bg);color:var(--green)}
+.tag-purple{background:var(--purple-bg);color:var(--purple)}.tag-amber{background:var(--amber-bg);color:var(--amber)}
+.tag-gray{background:var(--surface);color:var(--text3)}
+
+/* ── Section ── */
+.res-section{padding:40px 0 0;border-top:2px solid var(--border);margin-top:40px}
+.res-section:first-of-type{border-top:none;padding-top:36px;margin-top:0}
+.res-section-hd{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.res-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;font-size:18px;flex-shrink:0}
+.res-icon.blue{background:var(--blue-bg)}.res-icon.green{background:var(--green-bg)}.res-icon.purple{background:var(--purple-bg)}
+.res-title{font-size:18px;font-weight:700;letter-spacing:-.3px}
+.res-subtitle{font-size:13px;color:var(--text3);margin-top:2px}
+
+/* ── File grid ── */
+.file-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.file-card{display:flex;align-items:center;gap:12px;background:var(--white);
+  border:1px solid var(--border);border-radius:var(--r);padding:13px 16px;
+  text-decoration:none;color:var(--text);transition:all .15s;cursor:pointer}
+.file-card:hover{border-color:var(--blue);box-shadow:0 2px 8px rgba(0,113,227,.1);transform:translateY(-1px)}
+.file-card:hover .file-label{color:var(--blue)}
+.file-pdf-icon{width:32px;height:32px;flex-shrink:0;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;letter-spacing:-.5px}
+.file-pdf-icon.blue{background:var(--blue-bg);color:var(--blue)}
+.file-pdf-icon.green{background:var(--green-bg);color:var(--green)}
+.file-pdf-icon.purple{background:var(--purple-bg);color:var(--purple)}
+.file-info{min-width:0;flex:1}
+.file-label{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .12s}
+.file-meta{font-size:11px;color:var(--text4);margin-top:1px}
+.file-arr{font-size:14px;color:var(--text4);flex-shrink:0}
+
+/* ── Textbook card (special) ── */
+.textbook-card{display:flex;align-items:flex-start;gap:16px;background:var(--amber-bg);
+  border:1px solid #fde68a;border-radius:var(--r);padding:18px 20px;
+  text-decoration:none;color:var(--text);transition:all .15s;margin-bottom:16px}
+.textbook-card:hover{border-color:#f59e0b;box-shadow:0 2px 8px rgba(245,158,11,.15)}
+.tb-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.tb-info .tb-title{font-size:14px;font-weight:700;color:var(--amber);line-height:1.4}
+.tb-info .tb-sub{font-size:12px;color:var(--text3);margin-top:4px;line-height:1.5}
+.tb-arr{font-size:16px;color:var(--text4);flex-shrink:0;margin-top:4px}
+
+@media(max-width:700px){
+  .sidebar{display:none}
+  .main{padding:0 20px 80px}
+  .file-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sb-logo">
+      <div class="sb-logo-title">MATH 2107</div>
+      <div class="sb-logo-sub">Paul Mezo · Carleton · W2026</div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-section-label">Navigation</div>
+      <a class="sb-link" href="index.html">Study Guide &amp; Mock Final</a>
+      <a class="sb-link active" href="resources.html">Course Resources</a>
+    </div>
+    <div class="sb-section">
+      <div class="sb-section-label">On This Page</div>
+      <a class="sb-link" href="#lectures">Lecture Notes</a>
+      <a class="sb-link" href="#homework">Homework</a>
+      <a class="sb-link" href="#quizzes">Quiz &amp; Midterm Solutions</a>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+    <div class="page-hd">
+      <div class="page-hd-eyebrow">MATH 2107 — Linear Algebra</div>
+      <h1>Course Resources</h1>
+      <p>All lecture notes, homework assignments, and quiz/midterm solutions from the Winter 2026 offering. Click any file to open the PDF.</p>
+      <div class="hd-meta">
+        <span class="tag tag-blue">20 Lecture Notes</span>
+        <span class="tag tag-green">11 Homework Sets</span>
+        <span class="tag tag-purple">9 Quizzes + Midterm</span>
+        <span class="tag tag-amber">Textbook PDF</span>
+      </div>
+    </div>
+
+    <!-- ── Lecture Notes ── -->
+    <div class="res-section" id="lectures">
+      <div class="res-section-hd">
+        <div class="res-icon blue">📝</div>
+        <div>
+          <div class="res-title">Lecture Notes</div>
+          <div class="res-subtitle">Handwritten notes for every class — Jan 8 through Apr 2</div>
+        </div>
+      </div>
+      <div class="file-grid">
+        <a class="file-card" href="Lectures/Note Jan 8, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 8</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 13, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 13</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 15, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 15</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 20, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 20</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 22, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 22</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 27, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 27</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Jan 29, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Jan 29</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 3, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 3</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 5, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 5</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 10, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 10</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 12, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 12</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 24, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 24</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Feb 26, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Feb 26</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 3, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 3</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/2107 Mar 5, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 5</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 10, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 10</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 12, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 12</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 17, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 17</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 19, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 19</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 24, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 24</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 26, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 26</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Mar 31, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Mar 31</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Lectures/Note Apr 2, 2026.pdf" target="_blank">
+          <div class="file-pdf-icon blue">PDF</div>
+          <div class="file-info"><div class="file-label">Apr 2</div><div class="file-meta">Lecture notes</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Homework ── -->
+    <div class="res-section" id="homework">
+      <div class="res-section-hd">
+        <div class="res-icon green">📋</div>
+        <div>
+          <div class="res-title">Homework Assignments</div>
+          <div class="res-subtitle">All 11 problem sets, plus the course textbook</div>
+        </div>
+      </div>
+
+      <!-- Textbook highlight -->
+      <a class="textbook-card" href="Homework/LINEAR ALGEBRA AND ITS APPLICATIONS BY DAVID C_ LAY, STEVEN -- David C_ Lay, Steven R_ Lay, Judi J_ McDonald -- 6, 2019 -- Pearson -- 9780135851210 -- b3ed1afbc4428d1f8ae33b03e6edbf22 -- Anna's Archive.pdf" target="_blank">
+        <div class="tb-icon">📖</div>
+        <div class="tb-info">
+          <div class="tb-title">Linear Algebra and Its Applications — Lay, 6th Ed.</div>
+          <div class="tb-sub">David C. Lay, Steven R. Lay, Judi J. McDonald · Pearson, 2019 · Full textbook PDF</div>
+        </div>
+        <div class="tb-arr">↗</div>
+      </a>
+
+      <div class="file-grid">
+        <a class="file-card" href="Homework/HW1math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 1</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW2math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 2</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW3math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 3</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW4math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 4</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW5math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 5</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW6math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 6</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW7math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 7</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW8math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 8</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW9math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 9</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW10math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 10</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="Homework/HW11math2107-26.pdf" target="_blank">
+          <div class="file-pdf-icon green">PDF</div>
+          <div class="file-info"><div class="file-label">Homework 11</div><div class="file-meta">Problem set</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Quiz & Midterm Solutions ── -->
+    <div class="res-section" id="quizzes">
+      <div class="res-section-hd">
+        <div class="res-icon purple">✅</div>
+        <div>
+          <div class="res-title">Quiz &amp; Midterm Solutions</div>
+          <div class="res-subtitle">Full worked solutions for all assessments</div>
+        </div>
+      </div>
+      <div class="file-grid">
+        <a class="file-card" href="QuizAnswers/Midterm_math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Midterm Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz1math2107-26Sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 1 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz2math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 2 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz3math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 3 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz4math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 4 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz5math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 5 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz6math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 6 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz7math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 7 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz8math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 8 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+        <a class="file-card" href="QuizAnswers/Quiz9math2107-26sol.pdf" target="_blank">
+          <div class="file-pdf-icon purple">PDF</div>
+          <div class="file-info"><div class="file-label">Quiz 9 Solutions</div><div class="file-meta">Full solutions</div></div>
+          <div class="file-arr">↗</div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
