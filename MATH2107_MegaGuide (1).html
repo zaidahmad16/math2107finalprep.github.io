@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATH 2107 — Mega Study Guide + Mock Final</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false});"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafafa;--white:#ffffff;--surface:#f0f0f5;--border:#e0e0e8;--border-light:#ebebf0;
+  --text:#1c1c1e;--text2:#3a3a3c;--text3:#636366;--text4:#aeaeb2;
+  --blue:#0071e3;--blue-bg:#ebf3fd;--green:#1c7c4a;--green-bg:#eaf4f0;
+  --red:#c0392b;--red-bg:#fdf0ee;--amber:#92400e;--amber-bg:#fffbeb;
+  --purple:#5b21b6;--purple-bg:#f5f0ff;--teal:#0e7490;--teal-bg:#ecfeff;
+  --r:10px;--rs:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
+  font-size:15px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:240px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--white);border-right:1px solid var(--border);padding:0 0 60px;scrollbar-width:thin}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.main{flex:1;min-width:0;max-width:860px;padding:0 40px 140px}
+.sb-logo{padding:20px 20px 14px;border-bottom:1px solid var(--border)}
+.sb-logo-title{font-size:13px;font-weight:700;color:var(--text);letter-spacing:-.2px}
+.sb-logo-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.sb-section{padding:12px 20px 4px}
+.sb-section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text4);margin-bottom:6px}
+.sb-link{display:block;font-size:12px;color:var(--text3);text-decoration:none;padding:4px 8px;
+  border-radius:var(--rs);margin-bottom:1px;transition:all .12s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-link:hover{background:var(--surface);color:var(--text)}
+.sb-link.active{background:var(--blue-bg);color:var(--blue);font-weight:500}
+.sb-progress{padding:12px 20px;border-top:1px solid var(--border);margin-top:8px}
+.sb-prog-label{font-size:11px;color:var(--text3);margin-bottom:6px}
+.prog-bar{height:4px;background:var(--surface);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--blue);border-radius:2px;transition:width .4s ease;width:0%}
+.prog-text{font-size:11px;color:var(--text4);margin-top:4px}
+.page-hd{padding:44px 0 32px;border-bottom:1px solid var(--border);margin-bottom:0}
+.page-hd-eyebrow{font-size:12px;font-weight:500;color:var(--text3);margin-bottom:8px}
+.page-hd h1{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:10px}
+.page-hd p{font-size:14px;color:var(--text3);line-height:1.6;max-width:580px}
+.hd-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
+.tag-blue{background:var(--blue-bg);color:var(--blue)}.tag-green{background:var(--green-bg);color:var(--green)}
+.tag-purple{background:var(--purple-bg);color:var(--purple)}.tag-amber{background:var(--amber-bg);color:var(--amber)}
+.tag-red{background:var(--red-bg);color:var(--red)}.tag-teal{background:var(--teal-bg);color:var(--teal)}
+.tag-gray{background:var(--surface);color:var(--text3)}
+/* ── Coverage Audit ── */
+.audit{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;margin:28px 0 0}
+.audit h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin-bottom:14px}
+.audit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.audit-item{background:var(--surface);border-radius:var(--rs);padding:10px 14px;font-size:13px;color:var(--text2)}
+.audit-item .ok{color:var(--green);font-weight:700;margin-right:6px}
+.audit-item .warn{color:var(--amber);font-weight:700;margin-right:6px}
+.audit-item strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--text3);margin-bottom:3px}
+.gap-note{background:var(--amber-bg);border:1px solid #fde68a;border-radius:var(--rs);padding:10px 14px;
+  font-size:13px;color:var(--amber);margin-top:12px;line-height:1.55}
+/* ── Part Divider ── */
+.part-divider{padding:40px 0 0;border-top:2px solid var(--border);margin-top:40px}
+.part-label{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+  color:white;padding:4px 14px;border-radius:4px;margin-bottom:14px}
+.part-label.blue{background:var(--blue)}.part-label.green{background:var(--green)}
+.part-hd h2{font-size:22px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px}
+.part-hd p{font-size:14px;color:var(--text3);max-width:560px}
+/* ── Topic sections ── */
+.topic{padding:48px 0 36px;border-bottom:1px solid var(--border);scroll-margin-top:20px}
+.topic:last-child{border-bottom:none}
+.topic-hd{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.topic-num{flex-shrink:0;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;
+  justify-content:center;font-size:14px;font-weight:700;color:white;margin-top:3px}
+.topic-hd h2{font-size:20px;font-weight:700;letter-spacing:-.3px;line-height:1.3}
+.topic-hd .topic-sub{font-size:13px;color:var(--text3);margin-top:3px}
+h3{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);margin:26px 0 12px}
+h3:first-of-type{margin-top:0}
+/* ── Blocks ── */
+.block{border-radius:var(--r);padding:16px 20px;margin:12px 0;border:1px solid transparent}
+.def{background:var(--blue-bg);border-color:#c7dff7}.thm{background:var(--green-bg);border-color:#b7dfc8}
+.warn{background:var(--red-bg);border-color:#f5c6c0}.tip{background:var(--amber-bg);border-color:#fde68a}
+.note{background:var(--purple-bg);border-color:#d4c6f5}
+.mem{background:var(--white);border:2px solid var(--blue);position:relative;padding-top:22px}
+.mem-badge{position:absolute;top:-10px;left:16px;background:var(--blue);color:white;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;padding:2px 10px;border-radius:4px}
+.block-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px}
+.def .block-lbl{color:var(--blue)}.thm .block-lbl{color:var(--green)}.warn .block-lbl{color:var(--red)}
+.tip .block-lbl{color:var(--amber)}.note .block-lbl{color:var(--purple)}
+.block p{font-size:14px;color:var(--text2);margin-bottom:7px;line-height:1.65}
+.block p:last-child{margin-bottom:0}.block strong{color:var(--text)}
+/* ── Recipe ── */
+.recipe{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--blue);
+  border-radius:var(--r);overflow:hidden;margin:12px 0}
+.recipe-hd{background:var(--surface);padding:10px 16px;font-size:12px;font-weight:700;
+  color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+.recipe-body{padding:14px 16px}
+.recipe-step{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid var(--border-light);font-size:14px;line-height:1.6}
+.recipe-step:last-child{border-bottom:none;padding-bottom:0}
+.recipe-step:first-child{padding-top:0}
+.rn{font-weight:700;color:var(--blue);min-width:20px;flex-shrink:0}
+.rb{color:var(--text2);flex:1}.rb strong{color:var(--text)}
+/* ── Examples ── */
+.ex{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin:12px 0}
+.ex-hd{background:var(--surface);padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+.ex-title{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.ex-src{font-size:11px;color:var(--text4)}
+.ex-body{padding:16px}
+.ex-body p{font-size:14px;color:var(--text2);margin-bottom:8px;line-height:1.65}
+.ex-body p:last-child{margin-bottom:0}
+/* ── Reveal ── */
+.rev-wrap{margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light)}
+.rev-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;
+  color:var(--blue);background:none;border:1px solid var(--border);border-radius:var(--rs);
+  padding:6px 12px;cursor:pointer;transition:background .12s;letter-spacing:.2px}
+.rev-btn:hover{background:var(--blue-bg)}
+.chev{font-size:9px;transition:transform .2s;display:inline-block}
+.rev-btn.open .chev{transform:rotate(90deg)}
+.ans-box{display:none;margin-top:10px;padding:14px 16px;background:var(--green-bg);
+  border:1px solid #b7dfc8;border-radius:var(--rs);font-size:14px;line-height:1.7;color:var(--text2)}
+.ans-box.show{display:block}
+.ans-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--green);margin-bottom:8px}
+.step{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+.step:last-child{border-bottom:none;padding-bottom:0}.step:first-child{padding-top:0}
+.sn{font-weight:700;color:var(--green);min-width:20px;flex-shrink:0}
+.sb2{flex:1;color:var(--text2)}
+/* ── T/F ── */
+.tf-set{margin:12px 0}
+.tf-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:8px}
+.tf-q{font-size:14px;font-weight:500;color:var(--text);margin-bottom:10px}
+.tf-btns{display:flex;gap:8px;margin-bottom:2px}
+.tfb{padding:5px 18px;font-size:13px;font-weight:500;border:1.5px solid var(--border);
+  border-radius:20px;background:none;cursor:pointer;transition:all .12s}
+.tfb.t:hover,.tfb.t.on{background:var(--green-bg);border-color:var(--green);color:var(--green)}
+.tfb.f:hover,.tfb.f.on{background:var(--red-bg);border-color:var(--red);color:var(--red)}
+/* ── MCQ ── */
+.mc-set{margin:12px 0}
+.mc-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:8px}
+.mc-q{padding:14px 16px 10px;font-size:14px;font-weight:500;color:var(--text)}
+.mc-choices{list-style:none;padding:0 10px 10px}
+.mc-choices li{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:var(--rs);
+  font-size:14px;cursor:pointer;transition:all .12s;user-select:none;line-height:1.5;margin-bottom:3px}
+.mc-choices li:hover{background:var(--surface)}
+.mc-choices li.hit{background:var(--green-bg);border:1px solid #b7dfc8}
+.mc-choices li.miss{background:var(--red-bg);border:1px solid #f5c6c0}
+.mc-lbl{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--text3);margin-top:2px}
+.mc-choices li.hit .mc-lbl{background:var(--green);border-color:var(--green);color:white}
+.mc-choices li.miss .mc-lbl{background:var(--red);border-color:var(--red);color:white}
+/* ── Question cards (mock final style) ── */
+.qcard{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.qcard-hd{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;
+  background:var(--surface);border-bottom:1px solid var(--border)}
+.qcard-num{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.5px}
+.qcard-pts{font-size:12px;font-weight:600;color:var(--blue);background:var(--blue-bg);border-radius:5px;padding:2px 10px}
+.qcard-hw{font-size:11px;color:var(--text4);background:#e8e8ed;border-radius:4px;padding:2px 7px}
+.qbody{padding:18px}
+.qbody p{font-size:14px;margin-bottom:8px;color:var(--text)}
+.qbody p:last-of-type{margin-bottom:0}
+.work{width:100%;min-height:68px;border:1px solid var(--border);border-radius:var(--rs);
+  padding:12px;font-family:"SF Mono",Menlo,monospace;font-size:13px;color:var(--text);
+  background:var(--surface);resize:vertical;outline:none;transition:border-color .15s;
+  line-height:1.7;margin-top:12px}
+.work:focus{border-color:var(--blue);background:#fff}
+.ans{display:none;margin-top:12px;padding:14px 16px;background:var(--green-bg);
+  border:1px solid #b7dfc8;border-radius:var(--rs);font-size:14px;line-height:1.7}
+.ans.show{display:block}
+.choices{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.choices li{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:var(--rs);font-size:14px;
+  cursor:pointer;transition:all .12s;user-select:none;line-height:1.5}
+.choices li:hover{background:var(--surface)}
+.choices li.hit{background:var(--green-bg);border-color:var(--green)}
+.choices li.miss{background:var(--red-bg);border-color:var(--red)}
+.clabel{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;
+  color:var(--text3);margin-top:1px}
+.choices li.hit .clabel{background:var(--green);border-color:var(--green);color:#fff}
+.choices li.miss .clabel{background:var(--red);border-color:var(--red);color:#fff}
+.step-n{font-weight:700;color:var(--green);min-width:22px;flex-shrink:0;font-size:14px}
+.step-body{font-size:14px;color:var(--text2);line-height:1.65}
+/* ── Proof bank labels ── */
+.sec-hd{margin-bottom:8px}
+.sec-hd h2{font-size:20px;font-weight:700;letter-spacing:-.3px}
+.sec-desc{font-size:14px;color:var(--text3);line-height:1.55;margin-bottom:24px}
+/* ── Misc ── */
+.ftable{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.ftable th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text3);
+  text-align:left;padding:8px 14px;border-bottom:2px solid var(--border);background:var(--surface)}
+.ftable td{padding:10px 14px;border-bottom:1px solid var(--border-light);color:var(--text2);vertical-align:top;line-height:1.6}
+.ftable tr:hover td{background:var(--surface)}.ftable tr:last-child td{border-bottom:none}
+.checklist{list-style:none;margin:10px 0}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;
+  border-bottom:1px solid var(--border-light);font-size:14px;color:var(--text2)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:"□";color:var(--blue);font-size:16px;line-height:1.2;flex-shrink:0;margin-top:1px}
+.summary-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin:12px 0}
+.summary-card h4{font-size:13px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sg-item{font-size:13px;color:var(--text2);padding:6px 10px;background:var(--surface);border-radius:var(--rs)}
+.sg-item strong{color:var(--text);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+/* Score bar */
+.score-bar{position:fixed;bottom:0;left:240px;right:0;background:rgba(250,250,250,.94);
+  backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;z-index:100}
+.score-l{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.4px}
+.score-v{font-size:16px;font-weight:700}
+.score-reset{font-size:13px;font-weight:500;color:var(--blue);background:none;
+  border:1px solid var(--border);border-radius:var(--rs);padding:5px 12px;cursor:pointer}
+.score-reset:hover{background:var(--blue-bg)}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.hw-sep{font-size:12px;font-weight:600;color:var(--text4);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+@media(max-width:768px){.sidebar{display:none}.main{padding:0 18px 120px}.score-bar{left:0}}
+.katex-display{margin:12px 0!important;overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<nav class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-title">MATH 2107 — Mega Guide</div>
+    <div class="sb-logo-sub">Paul Mezo · Carleton · Winter 2026</div>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">Coverage Audit</div>
+    <a href="#audit" class="sb-link" onclick="mark(this)">✅ Coverage Check</a>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">PART I — Study Guide</div>
+    <a href="#s41" class="sb-link" onclick="mark(this)">4.1 Subspaces</a>
+    <a href="#s42" class="sb-link" onclick="mark(this)">4.2 Null &amp; Col Spaces</a>
+    <a href="#s43" class="sb-link" onclick="mark(this)">4.3–4.5 Bases &amp; Dim</a>
+    <a href="#s46" class="sb-link" onclick="mark(this)">4.6 Change of Basis / LT</a>
+    <a href="#s51" class="sb-link" onclick="mark(this)">5.1–5.3 Eigenvalues</a>
+    <a href="#s54" class="sb-link" onclick="mark(this)">5.4 Diagonalization</a>
+    <a href="#s55" class="sb-link" onclick="mark(this)">5.5 Complex Eigenvalues</a>
+    <a href="#s61" class="sb-link" onclick="mark(this)">6.1 Inner Products</a>
+    <a href="#s62" class="sb-link" onclick="mark(this)">6.2 Orthogonal Sets</a>
+    <a href="#s63" class="sb-link" onclick="mark(this)">6.3 Projections</a>
+    <a href="#s64" class="sb-link" onclick="mark(this)">6.4 Gram-Schmidt</a>
+    <a href="#s67" class="sb-link" onclick="mark(this)">6.7 Function Spaces</a>
+    <a href="#s71" class="sb-link" onclick="mark(this)">7.1 Symmetric &amp; Orth</a>
+    <a href="#s72" class="sb-link" onclick="mark(this)">7.2 Spectral Theorem</a>
+    <a href="#s73" class="sb-link" onclick="mark(this)">7.3 Quadratic Forms 🔴NEW</a>
+    <a href="#s74" class="sb-link" onclick="mark(this)">7.4 Pos/Neg Definite 🔴NEW</a>
+    <a href="#s75" class="sb-link" onclick="mark(this)">7.5 Bilinear Forms 🔴NEW</a>
+    <a href="#proofs" class="sb-link" onclick="mark(this)">★ All Proof Templates</a>
+    <a href="#checklist" class="sb-link" onclick="mark(this)">✓ Final Checklist</a>
+  </div>
+
+  <div class="sb-section">
+    <div class="sb-section-label">PART II — Mock Final</div>
+    <a href="#mock-p1" class="sb-link" onclick="mark(this)">§5 Eigenvalues (LA-1–3)</a>
+    <a href="#mock-p2" class="sb-link" onclick="mark(this)">§6 Inner Products (IB-1–5)</a>
+    <a href="#mock-p3" class="sb-link" onclick="mark(this)">§7 Spectral (SC-1–3)</a>
+    <a href="#mock-p4" class="sb-link" onclick="mark(this)">MCQ / T·F (MC-1–14)</a>
+    <a href="#mock-p5" class="sb-link" onclick="mark(this)">Proof Bank (P-1–7)</a>
+  </div>
+
+  <div class="sb-progress">
+    <div class="sb-prog-label">Practice questions answered</div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+    <div class="prog-text" id="prog-text">0 of 0 correct</div>
+  </div>
+</nav>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main class="main">
+
+<div class="page-hd">
+  <div class="page-hd-eyebrow">Paul Mezo · Carleton University · Winter 2026</div>
+  <h1>MATH 2107 — Complete Mega Study Guide</h1>
+  <p>Full course study guide (§4–§7) combined with a complete mock final. Every definition, theorem, proof recipe, worked example, and practice question in one document.</p>
+  <div class="hd-meta">
+    <span class="tag tag-blue">§4 Vector Spaces</span>
+    <span class="tag tag-green">§5 Eigenvalues</span>
+    <span class="tag tag-purple">§6 Inner Products</span>
+    <span class="tag tag-amber">§7 Spectral Theorem</span>
+    <span class="tag tag-teal">All 9 Quizzes</span>
+    <span class="tag tag-gray">HW 1–11</span>
+    <span class="tag tag-red">Midterm Q1–Q9</span>
+  </div>
+</div>
+
+<!-- ══════════════ COVERAGE AUDIT ══════════════ -->
+<div class="topic" id="audit">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0e7490">✅</div>
+    <div><h2>Coverage Audit</h2><div class="topic-sub">Everything on the final accounted for</div></div>
+  </div>
+  <div class="audit">
+    <h3>Lectures &amp; Sections</h3>
+    <div class="audit-grid">
+      <div class="audit-item"><strong>§4.1 Subspaces</strong><span class="ok">✅</span>Jan 8–15 · HW 1–2 · Quiz 1</div>
+      <div class="audit-item"><strong>§4.2 Null/Col Spaces + LT</strong><span class="ok">✅</span>Jan 15–22 · HW 1–2</div>
+      <div class="audit-item"><strong>§4.3–4.5 Bases &amp; Dimension</strong><span class="ok">✅</span>Jan 22–Feb 5 · Quiz 2</div>
+      <div class="audit-item"><strong>§4.6 Change of Basis / LT</strong><span class="ok">✅</span>Feb 5–12 · HW 2–3 · Quiz 2–3</div>
+      <div class="audit-item"><strong>§5.1–5.3 Eigenvalues</strong><span class="ok">✅</span>Feb 12–19 · Quiz 3–4</div>
+      <div class="audit-item"><strong>§5.4 Diagonalization</strong><span class="ok">✅</span>Feb 19–26 · HW 5</div>
+      <div class="audit-item"><strong>§5.5 Complex Eigenvalues</strong><span class="ok">✅</span>Mar 3 · HW 5 · Quiz 5</div>
+      <div class="audit-item"><strong>§6.1 Inner Products &amp; Norms</strong><span class="ok">✅</span>Mar 5–7 · HW 6 · Quiz 6</div>
+      <div class="audit-item"><strong>§6.2 Orthogonal Sets</strong><span class="ok">✅</span>Mar 10 · HW 7 · Quiz 7</div>
+      <div class="audit-item"><strong>§6.3–6.4 Projections / GS</strong><span class="ok">✅</span>Mar 10–14 · HW 8 · Quiz 8</div>
+      <div class="audit-item"><strong>§6.7 Function Spaces</strong><span class="ok">✅</span>Mar 12–17 · HW 9 · Quiz 9</div>
+      <div class="audit-item"><strong>§7.1 Symmetric &amp; Orth Matrices</strong><span class="ok">✅</span>Mar 19 · HW 10</div>
+      <div class="audit-item"><strong>§7.2 Spectral Theorem</strong><span class="ok">✅</span>Mar 24 · HW 11</div>
+      <div class="audit-item"><strong>Quadratic Forms</strong><span class="ok">✅</span>Mar 26 · Notes only</div>
+      <div class="audit-item"><strong>Pos/Neg Definite + Principal Axes</strong><span class="ok">✅</span>Mar 31 · Notes only</div>
+      <div class="audit-item"><strong>Symmetric Bilinear Forms</strong><span class="ok">✅</span>Apr 2 · NOT in textbook</div>
+    </div>
+    <h3 style="margin-top:18px">Assessments</h3>
+    <div class="audit-grid">
+      <div class="audit-item"><strong>Quiz 1</strong><span class="ok">✅</span>Subspaces §4.1</div>
+      <div class="audit-item"><strong>Quiz 2</strong><span class="ok">✅</span>Lin. Independence §4.3</div>
+      <div class="audit-item"><strong>Quiz 3</strong><span class="ok">✅</span>Eigenvalues §5.1 · MC-1</div>
+      <div class="audit-item"><strong>Quiz 4</strong><span class="ok">✅</span>Eigenvalues §5.1</div>
+      <div class="audit-item"><strong>Quiz 5</strong><span class="ok">✅</span>Complex eigenvalues · LA-3 · MC-3</div>
+      <div class="audit-item"><strong>Quiz 6</strong><span class="ok">✅</span>Inner products · IB-1 · MC-5</div>
+      <div class="audit-item"><strong>Quiz 7</strong><span class="ok">✅</span>Orth. complement · IB-2 · MC-6–7</div>
+      <div class="audit-item"><strong>Quiz 8</strong><span class="ok">✅</span>Projections · IB-4 · MC-8</div>
+      <div class="audit-item"><strong>Quiz 9</strong><span class="ok">✅</span>Function spaces · IB-5 · MC-9</div>
+      <div class="audit-item"><strong>Midterm Q1–Q9</strong><span class="ok">✅</span>Lin. indep., subspace, change of basis, eigenvalues, LT, T/F</div>
+      <div class="audit-item"><strong>HW 1–4 (§4)</strong><span class="ok">✅</span>Covered in §4 study guide sections</div>
+      <div class="audit-item"><strong>HW 5–11</strong><span class="ok">✅</span>All covered in mock final Part II</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PART I — STUDY GUIDE
+══════════════════════════════════════════ -->
+<div class="part-divider" id="part1">
+  <span class="part-label blue">PART I — Complete Course Study Guide</span>
+  <div class="part-hd">
+    <h2>§4 through §7 — Every Definition, Theorem &amp; Proof Recipe</h2>
+    <p>Built directly from lecture notes, all 9 quizzes, HW 1–11, and midterm solutions.</p>
+  </div>
+</div>
+
+<!-- §4.1 -->
+<div class="topic" id="s41">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0071e3">4.1</div>
+    <div><h2>Subspaces of a Vector Space</h2><div class="topic-sub">HW 1–2 · Quiz 1 · Midterm Q4</div></div>
+  </div>
+  <h3>Definitions to know cold</h3>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Vector Space.</strong> A set $V$ with addition and scalar multiplication satisfying 10 axioms. Main examples: $\mathbb{R}^n$, $\mathcal{P}_n$, $M_{m\times n}$, $C(\mathbb{R})$.</p>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Subspace.</strong> $W\subseteq V$ is a subspace if: <strong>(i)</strong> $\mathbf{0}\in W$, <strong>(ii)</strong> $\mathbf{u},\mathbf{v}\in W\Rightarrow\mathbf{u}+\mathbf{v}\in W$, <strong>(iii)</strong> $\mathbf{v}\in W, c\in\mathbb{R}\Rightarrow c\mathbf{v}\in W$.</p>
+  </div>
+  <h3>Key facts</h3>
+  <div class="block def"><div class="block-lbl">Dimension Table</div>
+    <table class="ftable">
+      <tr><th>Space</th><th>Zero vector</th><th>dim</th><th>Standard basis</th></tr>
+      <tr><td>$\mathbb{R}^n$</td><td>$(0,\ldots,0)$</td><td>$n$</td><td>$\{e_1,\ldots,e_n\}$</td></tr>
+      <tr><td>$\mathcal{P}_n$</td><td>$p(x)=0$</td><td>$n+1$</td><td>$\{1,x,x^2,\ldots,x^n\}$</td></tr>
+      <tr><td>$M_{m\times n}$</td><td>zero matrix</td><td>$mn$</td><td>$\{E_{ij}\}$</td></tr>
+    </table>
+  </div>
+  <div class="block warn"><div class="block-lbl">⚠ Common Traps</div>
+    <p><strong>$\dim(\mathcal{P}_3)=4$, not 3.</strong> Basis is $\{1,x,x^2,x^3\}$ — four vectors. This is Mezo's most-tested trap.</p>
+    <p><strong>$\mathbb{R}^2$ is NOT a subspace of $\mathbb{R}^3$</strong> — different sets (2-entry vs 3-entry vectors).</p>
+    <p><strong>Union of subspaces is usually NOT a subspace.</strong> Intersection always is.</p>
+  </div>
+  <h3>Proof recipe — Subspace (6 marks on midterm)</h3>
+  <div class="recipe">
+    <div class="recipe-hd">3-Step Subspace Proof Template</div>
+    <div class="recipe-body">
+      <div class="recipe-step"><span class="rn">1</span><span class="rb"><strong>Zero (2 pts):</strong> Identify the zero of $V$ explicitly. Verify it satisfies $W$'s condition. Conclude $\mathbf{0}\in W$.</span></div>
+      <div class="recipe-step"><span class="rn">2</span><span class="rb"><strong>Addition (2 pts):</strong> "Let $f,g\in W$" (assume both satisfy the condition). Compute $f+g$. Show it satisfies the condition. Conclude $f+g\in W$.</span></div>
+      <div class="recipe-step"><span class="rn">3</span><span class="rb"><strong>Scalar (2 pts):</strong> "Let $f\in W$ and $c\in\mathbb{R}$." Compute $cf$. Show it satisfies the condition. Conclude $cf\in W$. $\square$</span></div>
+    </div>
+  </div>
+  <h3>Worked Example</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Midterm Q4</span><span class="ex-src">6 marks</span></div>
+    <div class="ex-body">
+      <p>Show $W=\{f\in V:f(1)=f(0)\}$ is a subspace of $V$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">Zero: $z(x)=0$ satisfies $z(1)=0=z(0)$. So $z\in W$. ✓</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">Addition: Let $f,g\in W$. $(f+g)(1)=f(1)+g(1)=f(0)+g(0)=(f+g)(0)$. So $f+g\in W$. ✓</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">Scalar: Let $f\in W$, $c\in\mathbb{R}$. $(cf)(1)=cf(1)=cf(0)=(cf)(0)$. So $cf\in W$. $\square$ ✓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">1. $\mathcal{P}_2$ is a subspace of $\mathcal{P}_3$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf41a')" id="tf41a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf41a')">False</button></div><span id="tf41a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 1)</div><p>Every polynomial of degree $\leq 2$ also has degree $\leq 3$, so $\mathcal{P}_2\subseteq\mathcal{P}_3$. The subspace conditions are inherited.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">2. $H=\{p\in\mathcal{P}_2:p(x)=a+x^2,\,a\in\mathbb{R}\}$ is a subspace of $\mathcal{P}_2$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf41b')">True</button><button class="tfb f" onclick="dotf(this,'F','tf41b')" id="tf41b-ans">False</button></div><span id="tf41b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 1)</div><p>Take $q=1+x^2\in H$. Then $2q=2+2x^2\notin H$. Fails scalar closure.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">3. The set of all invertible $2\times2$ matrices is a subspace of $M_{2\times2}$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf41c')">True</button><button class="tfb f" onclick="dotf(this,'F','tf41c')" id="tf41c-ans">False</button></div><span id="tf41c" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>The zero matrix is not invertible, so condition (i) fails.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">4. The union of two subspaces of $V$ is always a subspace.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf41d')">True</button><button class="tfb f" onclick="dotf(this,'F','tf41d')" id="tf41d-ans">False</button></div><span id="tf41d" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>$H_1=\text{Span}\{(1,0)\}$, $H_2=\text{Span}\{(0,1)\}$: $(1,0)+(0,1)=(1,1)\notin H_1\cup H_2$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §4.2 -->
+<div class="topic" id="s42">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0071e3">4.2</div>
+    <div><h2>Null Spaces, Column Spaces &amp; Linear Transformations</h2><div class="topic-sub">HW 1–2 · Midterm Q7</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Linear Transformation.</strong> $T:V\to W$ is linear if for all $\mathbf{v},\mathbf{u}\in V$ and $c\in\mathbb{R}$: (1) $T(\mathbf{v}+\mathbf{u})=T(\mathbf{v})+T(\mathbf{u})$ &nbsp; (2) $T(c\mathbf{v})=cT(\mathbf{v})$</p>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Null Space:</strong> $\text{Nul}(A)=\{\mathbf{x}\in\mathbb{R}^n:A\mathbf{x}=\mathbf{0}\}$ — subspace of $\mathbb{R}^n$.</p>
+    <p><strong>Column Space:</strong> $\text{Col}(A)=\text{Span}\{\mathbf{a}_1,\ldots,\mathbf{a}_n\}$ — subspace of $\mathbb{R}^m$.</p>
+  </div>
+  <div class="block def"><div class="block-lbl">Key Facts</div>
+    <p><strong>Rank-Nullity:</strong> $\dim(\text{Nul}(A))+\dim(\text{Col}(A))=n$.</p>
+    <p><strong>Col($A$) basis:</strong> Use pivot columns of the <em>original</em> $A$ (not REF!).</p>
+    <p><strong>$T$ is one-to-one $\Leftrightarrow$ $\ker(T)=\{\mathbf{0}\}$.</strong></p>
+  </div>
+  <div class="block warn"><div class="block-lbl">⚠ Don't mix these up</div>
+    <p>If $A$ is $3\times5$: Nul lives in $\mathbb{R}^5$, Col lives in $\mathbb{R}^3$.</p>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">5. $T(x,y)=(|x|,y)$ is a linear transformation $\mathbb{R}^2\to\mathbb{R}^2$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf42a')">True</button><button class="tfb f" onclick="dotf(this,'F','tf42a')" id="tf42a-ans">False</button></div><span id="tf42a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>$T(-1\cdot(1,0))=T(-1,0)=(1,0)$ but $-1\cdot T(1,0)=(-1,0)$. Fails homogeneity.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">6. If $A$ is $3\times5$, then $\dim(\text{Nul}(A))\geq2$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf42b')" id="tf42b-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf42b')">False</button></div><span id="tf42b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>At most 3 pivots, so at least $5-3=2$ free variables.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §4.3–4.5 -->
+<div class="topic" id="s43">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0071e3">4.3–4.5</div>
+    <div><h2>Linear Independence, Bases &amp; Dimension</h2><div class="topic-sub">Quiz 2 · Midterm Q1, Q2, Q9</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Midterm Q1</div>
+    <p><strong>Linear Independence.</strong> $\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}\subseteq V$ is linearly independent if $c_1\mathbf{v}_1+\cdots+c_k\mathbf{v}_k=\mathbf{0}$ implies $c_1=\cdots=c_k=0$.</p>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Basis.</strong> A set $\mathcal{B}$ is a basis for $V$ if it is linearly independent AND spans $V$.</p>
+    <p><strong>Dimension.</strong> $\dim(V)=$ number of vectors in any basis for $V$.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Theorems 10–13 (Mezo's notation)</div>
+    <p>Let $\dim(V)=n$. Then: any set of $>n$ vectors in $V$ is linearly dependent. Any linearly independent set of exactly $n$ vectors is a basis. Any spanning set of exactly $n$ vectors is a basis. Any spanning set contains a basis. Any linearly independent set can be extended to a basis.</p>
+  </div>
+  <div class="block def"><div class="block-lbl">Coordinate Vectors (§4.4)</div>
+    <p>If $\mathcal{B}=\{\mathbf{b}_1,\ldots,\mathbf{b}_n\}$ is a basis and $\mathbf{v}=c_1\mathbf{b}_1+\cdots+c_n\mathbf{b}_n$, then $[\mathbf{v}]_\mathcal{B}=(c_1,\ldots,c_n)^\top\in\mathbb{R}^n$.</p>
+  </div>
+  <h3>Proof recipe — Linear Independence (6 marks on midterm)</h3>
+  <div class="recipe">
+    <div class="recipe-hd">Testing Linear Independence in Any Space</div>
+    <div class="recipe-body">
+      <div class="recipe-step"><span class="rn">1</span><span class="rb"><strong>Set up:</strong> "Suppose $c_1\mathbf{v}_1+c_2\mathbf{v}_2+c_3\mathbf{v}_3=\mathbf{0}$ for $c_1,c_2,c_3\in\mathbb{R}$."</span></div>
+      <div class="recipe-step"><span class="rn">2</span><span class="rb"><strong>Expand and collect:</strong> Substitute the actual vectors. Group by type.</span></div>
+      <div class="recipe-step"><span class="rn">3</span><span class="rb"><strong>Form system:</strong> Each component gives one equation.</span></div>
+      <div class="recipe-step"><span class="rn">4</span><span class="rb"><strong>Row reduce:</strong> Show each step clearly.</span></div>
+      <div class="recipe-step"><span class="rn">5</span><span class="rb"><strong>Conclude:</strong> "Only solution is $c_1=c_2=c_3=0$. Therefore linearly independent."</span></div>
+    </div>
+  </div>
+  <h3>Worked Example</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Midterm Q2 — exact</span><span class="ex-src">6 marks</span></div>
+    <div class="ex-body">
+      <p>Is $\{p_1=x^2+x+1,\,p_2=x^2+1,\,p_3=x+1\}$ linearly independent in $\mathcal{P}$?</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">$c_1(x^2+x+1)+c_2(x^2+1)+c_3(x+1)=0$</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">$(c_1+c_2)x^2+(c_1+c_3)x+(c_1+c_2+c_3)=0$</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">System: $c_1+c_2=0$, $c_1+c_3=0$, $c_1+c_2+c_3=0$</span></div>
+          <div class="step"><span class="sn">4</span><span class="sb2">Row reduce to $I_3$. Unique solution: $c_1=c_2=c_3=0$.</span></div>
+          <div class="step"><span class="sn">5</span><span class="sb2">Therefore $\{p_1,p_2,p_3\}$ is <strong>linearly independent</strong>. $\square$</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">7. If $V=\text{Span}\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$ then some subset is a basis for $V$. (Midterm Q9a)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf43a')" id="tf43a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf43a')">False</button></div><span id="tf43a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>Remove any vector that is a linear combination of the rest. Repeat. The remaining set spans $V$ and is linearly independent.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">8. $\mathbb{R}^3$ and $\mathcal{P}_3$ are isomorphic. (Midterm Q9b)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf43b')">True</button><button class="tfb f" onclick="dotf(this,'F','tf43b')" id="tf43b-ans">False</button></div><span id="tf43b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>$\dim(\mathbb{R}^3)=3$ but $\dim(\mathcal{P}_3)=4$. Isomorphic spaces must have equal dimension.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">9. If $\dim(V)=n$, there exists a spanning set for $V$ with $n+1$ vectors. (Midterm Q9c)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf43c')" id="tf43c-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf43c')">False</button></div><span id="tf43c" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>Take any basis and add $\mathbf{v}_{n+1}=\mathbf{0}$. The span is unchanged since $\mathbf{0}$ contributes nothing.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §4.6 -->
+<div class="topic" id="s46">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0071e3">4.6</div>
+    <div><h2>Change of Basis &amp; Matrix Representations</h2><div class="topic-sub">HW 2–3 · Quiz 2–3 · Midterm Q6, Q7</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Midterm Q6</div>
+    <p><strong>Change-of-Coordinates Matrix.</strong> If $\mathcal{A}=\{\mathbf{a}_1,\mathbf{a}_2,\mathbf{a}_3\}$ and $\mathcal{B}=\{\mathbf{b}_1,\mathbf{b}_2,\mathbf{b}_3\}$ are bases for $V$:</p>
+    $$P_{\mathcal{B}\leftarrow\mathcal{A}}=\bigl[[\mathbf{a}_1]_\mathcal{B}\;\;[\mathbf{a}_2]_\mathcal{B}\;\;[\mathbf{a}_3]_\mathcal{B}\bigr] \quad\text{and}\quad [\mathbf{v}]_\mathcal{B}=P_{\mathcal{B}\leftarrow\mathcal{A}}[\mathbf{v}]_\mathcal{A}$$
+  </div>
+  <div class="block def"><div class="block-lbl">Similar Matrices (§4.6 / §5.3)</div>
+    <p>$A$ and $B$ are <strong>similar</strong> if $A=PBP^{-1}$ for some invertible $P$. Similar matrices have the same: eigenvalues, characteristic polynomial, determinant, trace, rank.</p>
+  </div>
+  <h3>Worked Example — Change of Basis</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Midterm Q6 — exact</span><span class="ex-src">6 marks</span></div>
+    <div class="ex-body">
+      <p>$\mathbf{a}_1=2\mathbf{b}_1-\mathbf{b}_2$, $\mathbf{a}_2=-\mathbf{b}_1+\mathbf{b}_2+\mathbf{b}_3$, $\mathbf{a}_3=\mathbf{b}_2-2\mathbf{b}_3$. Find $P_{\mathcal{B}\leftarrow\mathcal{A}}$ and $[\mathbf{v}]_\mathcal{B}$ for $\mathbf{v}=\mathbf{a}_1+\mathbf{a}_2-\mathbf{a}_3$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">a</span><span class="sb2">Read off coefficients: $P_{\mathcal{B}\leftarrow\mathcal{A}}=\begin{pmatrix}2&-1&0\\-1&1&1\\0&1&-2\end{pmatrix}$.</span></div>
+          <div class="step"><span class="sn">b</span><span class="sb2">$[\mathbf{v}]_\mathcal{A}=(1,1,-1)^\top$. Then $[\mathbf{v}]_\mathcal{B}=P_{\mathcal{B}\leftarrow\mathcal{A}}(1,1,-1)^\top=(1,-1,3)^\top$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §5.1–5.3 -->
+<div class="topic" id="s51">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#1c7c4a">5.1–5.3</div>
+    <div><h2>Eigenvalues &amp; Eigenvectors</h2><div class="topic-sub">Quiz 3–4 · Midterm Q5, Q8</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Midterm Q5</div>
+    <p><strong>Eigenvalue / Eigenvector.</strong> $\lambda\in\mathbb{R}$ is an eigenvalue of $A\in M_{n\times n}$ if there exists a <strong>nonzero</strong> $\mathbf{v}\in\mathbb{R}^n$ with $A\mathbf{v}=\lambda\mathbf{v}$.</p>
+    <p>The $\lambda$-eigenspace is $\text{Nul}(A-\lambda I)$. Always a subspace of $\mathbb{R}^n$.</p>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Characteristic Polynomial.</strong> $\det(A-xI)$. Eigenvalues are roots.</p>
+    <p><strong>Algebraic multiplicity</strong> of $\lambda$: power of $(x-\lambda)$ in $\det(A-xI)$.</p>
+    <p><strong>Geometric multiplicity</strong> of $\lambda$: $\dim(\text{Nul}(A-\lambda I))$. Always: geometric $\leq$ algebraic.</p>
+  </div>
+  <h3>Proof Recipe — Eigenvalue proofs</h3>
+  <div class="recipe">
+    <div class="recipe-hd">Template: "Show $\lambda^k$ is eigenvalue of $A^k$"</div>
+    <div class="recipe-body">
+      <div class="recipe-step"><span class="rn">1</span><span class="rb"><strong>(2 pts)</strong> "By definition, $\exists$ <strong>nonzero</strong> $\mathbf{v}$ s.t. $A\mathbf{v}=\lambda\mathbf{v}$." — Don't forget "nonzero"!</span></div>
+      <div class="recipe-step"><span class="rn">2</span><span class="rb"><strong>(2 pts)</strong> Multiply both sides by $A$ repeatedly: $A^k\mathbf{v}=\lambda^k\mathbf{v}$.</span></div>
+      <div class="recipe-step"><span class="rn">3</span><span class="rb"><strong>(1 pt)</strong> "Since $\mathbf{v}\neq\mathbf{0}$, $\mathbf{v}$ is an eigenvector of $A^k$ with eigenvalue $\lambda^k$." $\square$</span></div>
+    </div>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">10. $A$ is invertible if and only if $0$ is not an eigenvalue of $A$. (Quiz 3)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf51a')" id="tf51a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf51a')">False</button></div><span id="tf51a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 3)</div><p>$A$ invertible $\Leftrightarrow$ no nonzero solution to $A\mathbf{x}=0\cdot\mathbf{x}$ $\Leftrightarrow$ $0$ not an eigenvalue.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">11. If $-1$ is an eigenvalue of $A$, then $A+I$ is not invertible. (Quiz 4)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf51b')" id="tf51b-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf51b')">False</button></div><span id="tf51b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 4)</div><p>$(A+I)\mathbf{v}=A\mathbf{v}+\mathbf{v}=-\mathbf{v}+\mathbf{v}=\mathbf{0}$. So $A+I$ has nontrivial null space.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §5.4 -->
+<div class="topic" id="s54">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#1c7c4a">5.4</div>
+    <div><h2>Diagonalization</h2><div class="topic-sub">HW 5 §5.4 · Midterm Q8</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Diagonalizable.</strong> $A\in M_{n\times n}$ is diagonalizable if $A=PDP^{-1}$ for some invertible $P$ and diagonal $D$. Columns of $P$ are eigenvectors; diagonal entries of $D$ are eigenvalues.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Theorem 7 (Mezo's key theorem)</div>
+    <p>$A$ is diagonalizable $\Leftrightarrow$ for each eigenvalue $\lambda_i$: geometric multiplicity $=$ algebraic multiplicity.</p>
+    <p><strong>Sufficient:</strong> $n$ distinct eigenvalues $\Rightarrow$ always diagonalizable.</p>
+    <p><strong>Not diagonalizable over $\mathbb{R}$:</strong> if characteristic polynomial has irreducible quadratic factors — cite Theorem 7(b).</p>
+  </div>
+  <h3>Worked Example — Midterm Q8</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Midterm Q8 — exact</span><span class="ex-src">6 marks</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}4&0&0\\0&0&-1\\0&1&0\end{pmatrix}$. (a) Find characteristic polynomial and eigenvalues. (b) Is $A$ diagonalizable?</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">a</span><span class="sb2">$\det(A-xI)=(4-x)(x^2+1)$. Real eigenvalue: $\lambda=4$ only.</span></div>
+          <div class="step"><span class="sn">b</span><span class="sb2">$x^2+1$ is irreducible over $\mathbb{R}$. By Theorem 7(b), $A$ is <strong>not diagonalizable</strong> over $\mathbb{R}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §5.5 -->
+<div class="topic" id="s55">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#1c7c4a">5.5</div>
+    <div><h2>Complex Numbers &amp; Complex Eigenvalues</h2><div class="topic-sub">HW 5 §5.5 · Quiz 5</div></div>
+  </div>
+  <div class="block def"><div class="block-lbl">Complex Number Basics</div>
+    <p>$z=a+bi$, $\overline{z}=a-bi$, $|z|^2=a^2+b^2=z\overline{z}$. Polar form: $z=re^{i\theta}$. De Moivre: $z^k=r^ke^{ik\theta}$.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Conjugate Eigenvalue Theorem</div>
+    <p>If $A$ has real entries and $\lambda\in\mathbb{C}$ is an eigenvalue with eigenvector $\mathbf{v}\in\mathbb{C}^n$, then $\overline{\lambda}$ is also an eigenvalue with eigenvector $\overline{\mathbf{v}}$. Complex eigenvalues of real matrices always come in conjugate pairs.</p>
+  </div>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">12. Only linear transformations on finite-dimensional vector spaces can have eigenvectors. (Quiz 5)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf55a')">True</button><button class="tfb f" onclick="dotf(this,'F','tf55a')" id="tf55a-ans">False</button></div><span id="tf55a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 5)</div><p>$D(e^{\lambda x})=\lambda e^{\lambda x}$ — the derivative operator on infinite-dimensional function spaces has eigenvectors.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §6.1 -->
+<div class="topic" id="s61">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">6.1</div>
+    <div><h2>Inner Products, Norms &amp; Distance</h2><div class="topic-sub">HW 6 · Quiz 6</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — 4 Axioms</div>
+    <p>$\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}$ (or $\mathbb{C}$) is an inner product if:</p>
+    <p>(1) $\langle\mathbf{u},\mathbf{v}\rangle=\overline{\langle\mathbf{v},\mathbf{u}\rangle}$ &nbsp; (2) $\langle\mathbf{u}+\mathbf{v},\mathbf{w}\rangle=\langle\mathbf{u},\mathbf{w}\rangle+\langle\mathbf{v},\mathbf{w}\rangle$</p>
+    <p>(3) $\langle c\mathbf{u},\mathbf{v}\rangle=c\langle\mathbf{u},\mathbf{v}\rangle$ &nbsp; (4) $\langle\mathbf{v},\mathbf{v}\rangle\geq0$ and $=0\Leftrightarrow\mathbf{v}=\mathbf{0}$</p>
+    <p><strong>Norm:</strong> $\|\mathbf{v}\|=\sqrt{\langle\mathbf{v},\mathbf{v}\rangle}$ &nbsp;·&nbsp; <strong>Distance:</strong> $\text{dist}(\mathbf{u},\mathbf{v})=\|\mathbf{u}-\mathbf{v}\|$</p>
+  </div>
+  <div class="block warn"><div class="block-lbl">⚠ Complex inner product — Mezo's convention</div>
+    <p>Standard inner product on $\mathbb{C}^n$: $\langle\mathbf{u},\mathbf{v}\rangle=u_1\overline{v_1}+\cdots+u_n\overline{v_n}$. <strong>Conjugate goes on the second slot.</strong></p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Key Inequalities</div>
+    <p><strong>Cauchy-Schwarz:</strong> $|\langle\mathbf{u},\mathbf{v}\rangle|\leq\|\mathbf{u}\|\|\mathbf{v}\|$ &nbsp;·&nbsp; <strong>Pythagorean theorem:</strong> If $\langle\mathbf{u},\mathbf{v}\rangle=0$ then $\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2$</p>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">13. If $\|\mathbf{u}\|^2+\|\mathbf{v}\|^2=\|\mathbf{u}+\mathbf{v}\|^2$, then $\mathbf{u}\perp\mathbf{v}$. (Quiz 6)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf61a')" id="tf61a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf61a')">False</button></div><span id="tf61a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>Expand: $\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+2\langle\mathbf{u},\mathbf{v}\rangle+\|\mathbf{v}\|^2$. Equal means $2\langle\mathbf{u},\mathbf{v}\rangle=0$.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">14. Two vectors orthogonal in the standard inner product on $\mathbb{R}^2$ are orthogonal in every inner product. (Quiz 9)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf61b')">True</button><button class="tfb f" onclick="dotf(this,'F','tf61b')" id="tf61b-ans">False</button></div><span id="tf61b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 9)</div><p>$(1,1)$ and $(1,-1)$: standard product gives 0. Under $\langle\mathbf{u},\mathbf{v}\rangle=4u_1v_1+5u_2v_2$: value is $4-5=-1\neq0$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §6.2 -->
+<div class="topic" id="s62">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">6.2</div>
+    <div><h2>Orthogonal Sets &amp; Orthogonal Complements</h2><div class="topic-sub">HW 7 · Quiz 7</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Orthogonal set:</strong> $\langle\mathbf{u}_i,\mathbf{u}_j\rangle=0$ for all $i\neq j$. &nbsp; <strong>Orthonormal:</strong> orthogonal AND $\|\mathbf{u}_i\|=1$ for all $i$.</p>
+    <p><strong>Orthogonal complement:</strong> $W^\perp=\{\mathbf{v}:\langle\mathbf{v},\mathbf{w}\rangle=0\text{ for all }\mathbf{w}\in W\}$.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Key Theorem</div>
+    <p>Any orthogonal set of <strong>nonzero</strong> vectors is linearly independent.</p>
+    <p>If $\mathcal{B}=\{\mathbf{u}_1,\ldots,\mathbf{u}_k\}$ is orthogonal and $\mathbf{y}\in W=\text{Span}(\mathcal{B})$: $\mathbf{y}=\sum\frac{\langle\mathbf{y},\mathbf{u}_j\rangle}{\|\mathbf{u}_j\|^2}\mathbf{u}_j$. If orthonormal: denominators disappear.</p>
+  </div>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">15. Normalizing an orthogonal set may destroy orthogonality. (Quiz 7)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf62a')">True</button><button class="tfb f" onclick="dotf(this,'F','tf62a')" id="tf62a-ans">False</button></div><span id="tf62a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 7)</div><p>$\langle\frac{\mathbf{u}}{\|\mathbf{u}\|},\frac{\mathbf{v}}{\|\mathbf{v}\|}\rangle=\frac{1}{\|\mathbf{u}\|\|\mathbf{v}\|}\langle\mathbf{u},\mathbf{v}\rangle=0$. Scaling never creates non-zero inner products.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §6.3 -->
+<div class="topic" id="s63">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">6.3</div>
+    <div><h2>Orthogonal Projections &amp; Best Approximation</h2><div class="topic-sub">HW 8 · Quiz 8</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Projection onto $W$.</strong> If $\{\mathbf{u}_1,\ldots,\mathbf{u}_k\}$ is an orthogonal basis for $W$:</p>
+    $$\text{proj}_W\mathbf{y}=\sum_{j=1}^k\frac{\langle\mathbf{y},\mathbf{u}_j\rangle}{\|\mathbf{u}_j\|^2}\mathbf{u}_j$$
+    <p><strong>Orthogonal decomposition:</strong> $\mathbf{y}=\text{proj}_W\mathbf{y}+\mathbf{z}$ where $\mathbf{z}=\mathbf{y}-\text{proj}_W\mathbf{y}\in W^\perp$.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Best Approximation Theorem</div>
+    <p>The closest point in $W$ to $\mathbf{y}$ is $\text{proj}_W\mathbf{y}$. The distance from $\mathbf{y}$ to $W$ is $\|\mathbf{y}-\text{proj}_W\mathbf{y}\|$.</p>
+  </div>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">16. For any $\mathbf{y}$ and subspace $W$, the vector $\mathbf{y}-\text{proj}_W\mathbf{y}$ is orthogonal to $W$. (Quiz 8 Q1)</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf63a')" id="tf63a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf63a')">False</button></div><span id="tf63a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 8)</div><p>By definition of the orthogonal projection, $\mathbf{y}-\text{proj}_W\mathbf{y}\in W^\perp$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §6.4 -->
+<div class="topic" id="s64">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">6.4</div>
+    <div><h2>Gram-Schmidt Process</h2><div class="topic-sub">HW 8 §6.3–6.4 · Notes Mar 10–12</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Algorithm</div>
+    <p>Given a basis $\{\mathbf{x}_1,\ldots,\mathbf{x}_k\}$ for $W$, produce orthogonal basis $\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$:</p>
+    $$\mathbf{v}_1=\mathbf{x}_1 \qquad \mathbf{v}_j=\mathbf{x}_j-\sum_{i=1}^{j-1}\frac{\langle\mathbf{x}_j,\mathbf{v}_i\rangle}{\|\mathbf{v}_i\|^2}\mathbf{v}_i$$
+    <p>To get orthonormal: $\mathbf{w}_j=\mathbf{v}_j/\|\mathbf{v}_j\|$. Always verify $\langle\mathbf{v}_i,\mathbf{v}_j\rangle=0$ after each step.</p>
+  </div>
+</div>
+
+<!-- §6.7 -->
+<div class="topic" id="s67">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">6.7</div>
+    <div><h2>Inner Product Spaces — Function Spaces</h2><div class="topic-sub">HW 9 · Quiz 9 · Notes Mar 12–17</div></div>
+  </div>
+  <div class="block def"><div class="block-lbl">Standard inner products on function spaces</div>
+    <table class="ftable">
+      <tr><th>Space</th><th>Inner product</th><th>Notes</th></tr>
+      <tr><td>$C[a,b]$</td><td>$\langle f,g\rangle=\int_a^b f(t)g(t)\,dt$</td><td>Real-valued functions</td></tr>
+      <tr><td>$\mathcal{P}_n$ (finite points)</td><td>$\langle p,q\rangle=\sum_{k=0}^n p(t_k)q(t_k)$</td><td>Evaluation at $n+1$ distinct points</td></tr>
+    </table>
+  </div>
+  <div class="block warn"><div class="block-lbl">⚠ Useful Integral Facts</div>
+    <p>$\int_{-1}^1 t^{2k+1}\,dt=0$ (odd function, symmetric interval). $\int_{-1}^1 t^{2k}\,dt=\frac{2}{2k+1}$. So $\int_{-1}^1 t^2\,dt=\frac{2}{3}$, $\int_{-1}^1 1\,dt=2$. $\int_0^{2\pi}\cos x\,dx=0$, $\int_0^{2\pi}\cos^2 x\,dx=\pi$.</p>
+  </div>
+  <h3>Worked Example — Quiz 9</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Projection in $C[-1,1]$</span><span class="ex-src">Quiz 9</span></div>
+    <div class="ex-body">
+      <p>$\langle f,g\rangle=\int_{-1}^1 f(t)g(t)\,dt$. $p_0=1$, $p_1=x$, $p_2=x^2$. Find $\text{proj}_W p_2$ where $W=\text{Span}\{p_0,p_1\}$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">$\langle p_2,p_0\rangle=\int_{-1}^1 t^2\,dt=\frac{2}{3}$. $\langle p_0,p_0\rangle=2$.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">$\langle p_2,p_1\rangle=\int_{-1}^1 t^3\,dt=0$ (odd function).</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">$\text{proj}_W p_2=\frac{2/3}{2}\cdot 1+0\cdot x=\frac{1}{3}$. Best approximation to $x^2$ by degree $\leq1$ is the constant $\frac{1}{3}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §7.1 -->
+<div class="topic" id="s71">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">7.1</div>
+    <div><h2>Symmetric &amp; Orthogonal Matrices</h2><div class="topic-sub">HW 10 · Notes Mar 19</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE</div>
+    <p><strong>Symmetric:</strong> $A=A^\top$. &nbsp; <strong>Orthogonal matrix:</strong> $P^\top P=I$, equivalently $P^{-1}=P^\top$. Columns form an orthonormal basis for $\mathbb{R}^n$.</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Properties of Orthogonal Matrices</div>
+    <p>$P$ orthogonal $\Rightarrow$ $\langle P\mathbf{u},P\mathbf{v}\rangle=\langle\mathbf{u},\mathbf{v}\rangle$ and $\|P\mathbf{u}\|=\|\mathbf{u}\|$.</p>
+    <p>$\det(P)=\pm1$. Rotation matrix: $P=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$.</p>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">17. If $P$ is orthogonal, then $P\mathbf{u}\perp P\mathbf{v}$ whenever $\mathbf{u}\perp\mathbf{v}$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf71a')" id="tf71a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf71a')">False</button></div><span id="tf71a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>$\langle P\mathbf{u},P\mathbf{v}\rangle=\mathbf{v}^\top P^\top P\mathbf{u}=\mathbf{v}^\top\mathbf{u}=\langle\mathbf{u},\mathbf{v}\rangle=0$.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">18. If $\det(P)=1$ then $P$ is orthogonal.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf71b')">True</button><button class="tfb f" onclick="dotf(this,'F','tf71b')" id="tf71b-ans">False</button></div><span id="tf71b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>$\det=1$ is necessary but not sufficient. $\begin{pmatrix}2&0\\0&1/2\end{pmatrix}$ has $\det=1$ but $P^\top P=\begin{pmatrix}4&0\\0&1/4\end{pmatrix}\neq I$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §7.2 -->
+<div class="topic" id="s72">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">7.2</div>
+    <div><h2>Spectral Theorem &amp; Orthogonal Diagonalization</h2><div class="topic-sub">HW 11 · Notes Mar 24</div></div>
+  </div>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Spectral Theorem</div>
+    <p>$A\in M_{n\times n}$ is <strong>orthogonally diagonalizable</strong> ($A=PDP^\top$, $P$ orthogonal) $\Leftrightarrow$ $A$ is <strong>symmetric</strong> ($A=A^\top$).</p>
+  </div>
+  <div class="block thm"><div class="block-lbl">Theorem 1 — Key Lemma</div>
+    <p>If $A=A^\top$ and $\lambda_1\neq\lambda_2$ are distinct eigenvalues with eigenvectors $\mathbf{v}_1,\mathbf{v}_2$, then $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$.</p>
+    <p><strong>Proof key move:</strong> $\lambda_1\langle\mathbf{v}_1,\mathbf{v}_2\rangle=\langle A\mathbf{v}_1,\mathbf{v}_2\rangle\underbrace{=}_{A=A^\top}\langle\mathbf{v}_1,A\mathbf{v}_2\rangle=\lambda_2\langle\mathbf{v}_1,\mathbf{v}_2\rangle$. Since $\lambda_1\neq\lambda_2$: inner product $=0$.</p>
+  </div>
+  <h3>Full Orthogonal Diagonalization Recipe</h3>
+  <div class="recipe">
+    <div class="recipe-hd">End-to-End: Orthogonally Diagonalize a Symmetric Matrix</div>
+    <div class="recipe-body">
+      <div class="recipe-step"><span class="rn">1</span><span class="rb">Compute $\det(A-xI)$. All roots are real (Spectral Theorem guarantees this).</span></div>
+      <div class="recipe-step"><span class="rn">2</span><span class="rb">For each eigenvalue, find a basis for $\text{Nul}(A-\lambda I)$.</span></div>
+      <div class="recipe-step"><span class="rn">3</span><span class="rb">If eigenspace has $\dim>1$, apply Gram-Schmidt within it. (Different eigenspaces are automatically orthogonal by Theorem 1.)</span></div>
+      <div class="recipe-step"><span class="rn">4</span><span class="rb">Normalize all eigenvectors. Put them as columns of $P$.</span></div>
+      <div class="recipe-step"><span class="rn">5</span><span class="rb">$D=$ diagonal matrix of corresponding eigenvalues. Then $A=PDP^\top$.</span></div>
+    </div>
+  </div>
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">19. Every real symmetric matrix is diagonalizable.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf72a')" id="tf72a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf72a')">False</button></div><span id="tf72a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True — Spectral Theorem</div><p>Every real symmetric matrix is <em>orthogonally</em> diagonalizable — a stronger statement. All eigenvalues are real, and the Spectral Theorem guarantees an orthonormal basis of eigenvectors.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">20. If $A$ is orthogonally diagonalizable, then $A$ is symmetric.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf72b')" id="tf72b-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf72b')">False</button></div><span id="tf72b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True — Biconditional</div><p>$A=PDP^\top$ with $P$ orthogonal $\Rightarrow$ $A^\top=PD^\top P^\top=PDP^\top=A$. The Spectral Theorem is an iff.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §7.3 QUADRATIC FORMS -->
+<div class="topic" id="s73">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">7.3</div>
+    <div><h2>Quadratic Forms</h2><div class="topic-sub">Notes Mar 26 · NOT in textbook section</div></div>
+  </div>
+
+  <div class="block warn"><div class="block-lbl">🔴 NEW — From Mar 26 Lecture</div>
+    <p>This topic was not in the original study guide. It comes directly from the Mar 26 notes and is almost certainly on the final.</p>
+  </div>
+
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Definition</div>
+    <p><strong>Quadratic Form.</strong> Let $A\in M_{n\times n}$ be symmetric ($A=A^\top$). The <strong>quadratic form corresponding to $A$</strong> is the function $Q:\mathbb{R}^n\to\mathbb{R}$ defined by:</p>
+    $$Q(\mathbf{v}) = \mathbf{v}^\top A\mathbf{v}$$
+    <p>$Q$ is a homogeneous polynomial of degree 2 in the entries of $\mathbf{v}$.</p>
+  </div>
+
+  <div class="block def"><div class="block-lbl">Reading off the matrix from a polynomial</div>
+    <p>For $A=\begin{pmatrix}a&b\\b&c\end{pmatrix}$ (symmetric), the quadratic form is:</p>
+    $$Q(\mathbf{v}) = ax_1^2 + 2bx_1x_2 + cx_2^2$$
+    <p><strong>Rule:</strong> diagonal entries of $A$ → coefficients of squared terms. Off-diagonal entries $a_{jk}$ → half the coefficient of the mixed term $x_jx_k$ (factor of 2 because both $(j,k)$ and $(k,j)$ entries contribute).</p>
+  </div>
+
+  <div class="block tip"><div class="block-lbl">💡 Converting polynomial → matrix</div>
+    <p>Given a homogeneous degree-2 polynomial: put the coefficient of $x_i^2$ on the diagonal. Split each mixed monomial coefficient in half: coefficient of $x_ix_j$ gives $\frac{1}{2}\cdot\text{coeff}$ in positions $(i,j)$ and $(j,i)$.</p>
+  </div>
+
+  <h3>Worked Examples</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Example — Mar 26 Notes</span><span class="ex-src">Reading the matrix</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}3&2&0\\2&6&4\\0&4&2\end{pmatrix}$ (symmetric). Write out $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">Diagonal entries give square terms: $3x_1^2 + 6x_2^2 + 2x_3^2$.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">Off-diagonal entry $a_{12}=2$ gives $2\cdot 2\cdot x_1x_2 = 4x_1x_2$. Entry $a_{23}=4$ gives $2\cdot 4\cdot x_2x_3=8x_2x_3$. Entry $a_{13}=0$ gives $0$.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">$Q(\mathbf{v}) = 3x_1^2 + 6x_2^2 + 2x_3^2 + 4x_1x_2 + 8x_2x_3$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Example — Polynomial to Matrix</span><span class="ex-src">Mar 26 Notes</span></div>
+    <div class="ex-body">
+      <p>Write the quadratic form $3x_1^2 - 2x_1x_2 + 5x_2^2 + 4x_2x_3$ as $\mathbf{v}^\top A\mathbf{v}$ for a symmetric $A$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">Diagonal: $a_{11}=3$, $a_{22}=5$, $a_{33}=0$.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">Off-diagonal: coeff of $x_1x_2$ is $-2$, so $a_{12}=a_{21}=-1$. Coeff of $x_2x_3$ is $4$, so $a_{23}=a_{32}=2$. No $x_1x_3$ term, so $a_{13}=a_{31}=0$.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">$A=\begin{pmatrix}3&-1&0\\-1&5&2\\0&2&0\end{pmatrix}$. Verify: $A=A^\top$ ✓</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Principal Axes Theorem</h3>
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Theorem 4</div>
+    <p><strong>Principal Axes Theorem.</strong> Let $A\in M_{n\times n}$ be symmetric with orthogonal diagonalization $A=PDP^\top$ (columns of $P$ are orthonormal eigenvectors $\mathbf{u}_1,\ldots,\mathbf{u}_n$, $D=\text{diag}(\lambda_1,\ldots,\lambda_n)$). Then:</p>
+    $$Q(\mathbf{v}) = \mathbf{v}^\top A\mathbf{v} = \mathbf{y}^\top D\mathbf{y} = \lambda_1 y_1^2 + \lambda_2 y_2^2 + \cdots + \lambda_n y_n^2$$
+    <p>where $\mathbf{y} = P^\top\mathbf{v}$ (equivalently $\mathbf{v} = P\mathbf{y}$, i.e. $\mathbf{y}=[\mathbf{v}]_\mathcal{B}$ in the eigenvector basis $\mathcal{B}$).</p>
+    <p><strong>Geometric meaning:</strong> After changing to the eigenvector coordinate system, the quadratic form has no cross terms — it's a pure sum of squares scaled by eigenvalues.</p>
+  </div>
+
+  <div class="block def"><div class="block-lbl">Spectral Decomposition Connection</div>
+    <p>From the spectral decomposition $A = \lambda_1\mathbf{u}_1\mathbf{u}_1^\top + \cdots + \lambda_n\mathbf{u}_n\mathbf{u}_n^\top$, we get:</p>
+    $$Q(\mathbf{v}) = \lambda_1(\mathbf{u}_1\cdot\mathbf{v})^2 + \cdots + \lambda_n(\mathbf{u}_n\cdot\mathbf{v})^2 = \lambda_1\|\text{proj}_{\mathbf{u}_1}\mathbf{v}\|^2 + \cdots$$
+  </div>
+
+  <h3>Worked Example — Principal Axes</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Principal Axes Theorem — Mar 26 Notes</span><span class="ex-src">End-to-end</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}5&2\\2&5\end{pmatrix}$. Diagonalize and express $Q(\mathbf{v})=5x^2+4xy+5y^2$ in principal axes coordinates.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">$\det(A-\lambda I)=(\lambda-7)(\lambda-3)$. Eigenvalues $\lambda_1=7$, $\lambda_2=3$.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">$\lambda=7$: $\mathbf{v}_1=(1,1)^\top$, $\mathbf{u}_1=\frac{1}{\sqrt{2}}(1,1)^\top$. $\lambda=3$: $\mathbf{v}_2=(1,-1)^\top$, $\mathbf{u}_2=\frac{1}{\sqrt{2}}(1,-1)^\top$.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">$P=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $D=\begin{pmatrix}7&0\\0&3\end{pmatrix}$. Change of variable $\mathbf{y}=P^\top\mathbf{v}$.</span></div>
+          <div class="step"><span class="sn">4</span><span class="sb2">In principal axes coordinates: $Q=7y_1^2+3y_2^2$. No cross term! The axes of symmetry are $\text{span}\{\mathbf{u}_1\}$ and $\text{span}\{\mathbf{u}_2\}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">21. For $A=\begin{pmatrix}2&3\\3&1\end{pmatrix}$, the quadratic form is $Q(\mathbf{v})=2x_1^2+6x_1x_2+x_2^2$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf73a')" id="tf73a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf73a')">False</button></div><span id="tf73a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>Diagonal entries give $2x_1^2+x_2^2$. Off-diagonal $a_{12}=3$ gives $2\cdot 3\cdot x_1x_2=6x_1x_2$. Total: $2x_1^2+6x_1x_2+x_2^2$.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">22. The Principal Axes Theorem says every quadratic form can be written as a sum of squares (no cross terms) in some orthonormal coordinate system.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf73b')" id="tf73b-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf73b')">False</button></div><span id="tf73b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>The change of variable $\mathbf{y}=P^\top\mathbf{v}$ (where $P$ is the orthogonal diagonalizing matrix) eliminates all cross terms. $Q(\mathbf{v})=\lambda_1y_1^2+\cdots+\lambda_ny_n^2$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §7.4 POSITIVE/NEGATIVE DEFINITE -->
+<div class="topic" id="s74">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">7.4</div>
+    <div><h2>Positive Definite, Negative Definite, Indefinite</h2><div class="topic-sub">Notes Mar 31 · Theorem 5</div></div>
+  </div>
+
+  <div class="block warn"><div class="block-lbl">🔴 NEW — From Mar 31 Lecture</div>
+    <p>Classifying quadratic forms by their sign. Determined entirely by the eigenvalues of $A$.</p>
+  </div>
+
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Definitions</div>
+    <p>Let $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$ be the quadratic form of symmetric $A$. Then:</p>
+    <p>• $Q$ is <strong>positive definite</strong> if $Q(\mathbf{v})>0$ for all $\mathbf{v}\neq\mathbf{0}$.</p>
+    <p>• $Q$ is <strong>negative definite</strong> if $Q(\mathbf{v})<0$ for all $\mathbf{v}\neq\mathbf{0}$.</p>
+    <p>• $Q$ is <strong>indefinite</strong> if $Q$ takes both positive and negative values.</p>
+    <p>(Also: positive semi-definite $Q\geq0$; negative semi-definite $Q\leq0$.)</p>
+  </div>
+
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Theorem 5 (Key Theorem)</div>
+    <p>Let $Q=\mathbf{v}^\top A\mathbf{v}$ for symmetric $A\in M_{n\times n}$. Then:</p>
+    <p><strong>(a)</strong> $Q$ is <strong>positive definite</strong> $\Leftrightarrow$ all eigenvalues of $A$ are positive ($>0$).</p>
+    <p><strong>(b)</strong> $Q$ is <strong>negative definite</strong> $\Leftrightarrow$ all eigenvalues of $A$ are negative ($<0$).</p>
+    <p><strong>(c)</strong> $Q$ is <strong>indefinite</strong> $\Leftrightarrow$ $A$ has both positive and negative eigenvalues.</p>
+    <p><strong>Why:</strong> By the Principal Axes Theorem, $Q=\lambda_1y_1^2+\cdots+\lambda_ny_n^2$. The sign of $Q$ is determined entirely by the signs of the $\lambda_i$.</p>
+  </div>
+
+  <div class="block warn"><div class="block-lbl">⚠ Connection to Inner Products</div>
+    <p>A symmetric bilinear form $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ is an <strong>inner product</strong> if and only if its quadratic form $Q(\mathbf{v})=B(\mathbf{v},\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$ is <strong>positive definite</strong> — i.e., all eigenvalues of $A$ are positive.</p>
+  </div>
+
+  <h3>Worked Examples</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Classify the quadratic form — Mar 31 Notes</span><span class="ex-src">Theorem 5</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}3&0&0\\0&-1&0\\0&0&2\end{pmatrix}$ (already diagonal). Classify $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$.</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">Eigenvalues are $3, -1, 2$. Mixed signs.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">By Theorem 5(c): $Q$ is <strong>indefinite</strong>. E.g. $Q(e_1)=3>0$ but $Q(e_2)=-1<0$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Full classification pipeline — Mar 31 Notes</span><span class="ex-src">Textbook Ex 1</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}3&0&0\\0&1&0\\0&0&2\end{pmatrix}$. $Q(\mathbf{v})=3x_1^2-2x_1x_2+x_2^2+4x_2x_3$. Is $Q$ positive definite?</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">First write the symmetric matrix $A$: diagonal entries match squared terms. Off-diagonal: $a_{12}=a_{21}=-1$ (from $-2x_1x_2$), $a_{23}=a_{32}=2$ (from $4x_2x_3$). So $A=\begin{pmatrix}3&-1&0\\-1&1&2\\0&2&0\end{pmatrix}$.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">$\det(A-\lambda I)=(-\lambda)(\lambda-1)(\lambda-3)+\ldots$ — compute eigenvalues. For the exam: just find $\det(A-\lambda I)=0$ and check signs of roots. If any eigenvalue $\leq0$, not positive definite.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">If all eigenvalues $>0$ → positive definite. If all $<0$ → negative definite. Mixed → indefinite.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">23. If $A$ has eigenvalues $2, 5, 3$, then $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$ is positive definite.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf74a')" id="tf74a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf74a')">False</button></div><span id="tf74a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True — Theorem 5</div><p>All eigenvalues are positive. By Theorem 5(a), $Q$ is positive definite.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">24. A quadratic form can be positive definite even if its symmetric matrix has a zero eigenvalue.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf74b')">True</button><button class="tfb f" onclick="dotf(this,'F','tf74b')" id="tf74b-ans">False</button></div><span id="tf74b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False</div><p>If $\lambda=0$ is an eigenvalue with eigenvector $\mathbf{v}$, then $Q(\mathbf{v})=\lambda\|\mathbf{v}\|^2=0$ (by Principal Axes), violating $Q(\mathbf{v})>0$ for all $\mathbf{v}\neq\mathbf{0}$. Positive definite requires <em>strictly</em> positive eigenvalues.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">25. If $Q$ is positive definite, then its symmetric matrix $A$ is invertible.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf74c')" id="tf74c-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf74c')">False</button></div><span id="tf74c" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>All eigenvalues $>0$ means none are zero, so $0$ is not an eigenvalue of $A$, which means $A$ is invertible.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- §7.5 SYMMETRIC BILINEAR FORMS -->
+<div class="topic" id="s75">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">7.5</div>
+    <div><h2>Symmetric Bilinear Forms</h2><div class="topic-sub">Notes Apr 2 · NOT IN TEXTBOOK — Mezo added this</div></div>
+  </div>
+
+  <div class="block warn"><div class="block-lbl">🔴 NEW — Last Lecture (Apr 2) — Not in Textbook</div>
+    <p>Mezo explicitly wrote "Not in textbook" on these notes. This is brand new material from the final lecture. High probability it appears on the final.</p>
+  </div>
+
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Definition</div>
+    <p><strong>Symmetric Bilinear Form.</strong> A function $B:V\times V\to\mathbb{R}$ is a symmetric bilinear form if:</p>
+    <p>(i) $B(\mathbf{u},\mathbf{v})=B(\mathbf{v},\mathbf{u})$ &nbsp;(symmetric)</p>
+    <p>(ii) $B(\mathbf{u}+\mathbf{v},\mathbf{w})=B(\mathbf{u},\mathbf{w})+B(\mathbf{v},\mathbf{w})$ &nbsp;(additive in first slot)</p>
+    <p>(iii) $B(c\mathbf{u},\mathbf{v})=cB(\mathbf{u},\mathbf{v})$ for $c\in\mathbb{R}$ &nbsp;(scalar in first slot)</p>
+    <p><strong>Key consequence:</strong> By symmetry + (ii)+(iii), $B$ is also linear in the <em>second</em> slot. That's why it's called <em>bi</em>linear.</p>
+  </div>
+
+  <div class="block warn"><div class="block-lbl">⚠ Bilinear Form vs Inner Product</div>
+    <p>A symmetric bilinear form is <strong>NOT necessarily an inner product</strong> — it can fail condition (iv): $B(\mathbf{v},\mathbf{v})\geq0$ with $=0\Leftrightarrow\mathbf{v}=\mathbf{0}$.</p>
+    <p><strong>Example from notes:</strong> $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ for $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$. Check: $B((1,0)^\top,(1,0)^\top)=(1,0)\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1\\0\end{pmatrix}=0$, but $(1,0)^\top\neq\mathbf{0}$. Property (iv) fails — so not an inner product.</p>
+  </div>
+
+  <div class="block mem"><div class="mem-badge">MEMORIZE — Theorem (Matrix Representation)</div>
+    <p>Every symmetric bilinear form on $\mathbb{R}^n$ is of the form $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ for a unique symmetric matrix $A\in M_{n\times n}$.</p>
+    <p><strong>Finding $A$:</strong> The $(j,k)$-entry of $A$ is $a_{jk}=B(\mathbf{e}_j,\mathbf{e}_k)$ where $\mathbf{e}_1,\ldots,\mathbf{e}_n$ are standard basis vectors. Symmetry of $B$ forces $A=A^\top$.</p>
+    <p><strong>Conversely:</strong> Any symmetric $A$ defines a symmetric bilinear form via $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$.</p>
+  </div>
+
+  <div class="block def"><div class="block-lbl">Connection: Bilinear Form ↔ Quadratic Form</div>
+    <p>Every symmetric bilinear form $B$ has an associated <strong>quadratic form</strong>:</p>
+    $$Q(\mathbf{v}) = B(\mathbf{v},\mathbf{v}) = \mathbf{v}^\top A\mathbf{v}$$
+    <p>You can recover $B$ from $Q$ via the polarization identity: $B(\mathbf{u},\mathbf{v})=\frac{1}{2}[Q(\mathbf{u}+\mathbf{v})-Q(\mathbf{u})-Q(\mathbf{v})]$.</p>
+  </div>
+
+  <div class="block thm"><div class="block-lbl">When is a Bilinear Form an Inner Product?</div>
+    <p>$B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ is an inner product on $\mathbb{R}^n$ if and only if its quadratic form $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$ is <strong>positive definite</strong>, i.e., all eigenvalues of $A$ are positive.</p>
+  </div>
+
+  <h3>Worked Examples</h3>
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Example 1 — Apr 2 Notes</span><span class="ex-src">Verifying bilinear form</span></div>
+    <div class="ex-body">
+      <p>Let $A\in M_{n\times n}$ be any matrix. Define $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$. Is $B$ always a symmetric bilinear form?</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2"><strong>Bilinear:</strong> $B(\mathbf{u}+\mathbf{v},\mathbf{w})=(\mathbf{u}+\mathbf{v})^\top A\mathbf{w}=\mathbf{u}^\top A\mathbf{w}+\mathbf{v}^\top A\mathbf{w}=B(\mathbf{u},\mathbf{w})+B(\mathbf{v},\mathbf{w})$ ✓. Similarly for scalar and second slot.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2"><strong>Symmetric?</strong> $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$. $B(\mathbf{v},\mathbf{u})=\mathbf{v}^\top A\mathbf{u}=(\mathbf{u}^\top A^\top\mathbf{v})^\top$. Since this is a $1\times1$ matrix: $=\mathbf{u}^\top A^\top\mathbf{v}$. So $B(\mathbf{u},\mathbf{v})=B(\mathbf{v},\mathbf{u})$ if and only if $A=A^\top$.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2"><strong>Conclusion:</strong> $B$ is bilinear always, but symmetric only when $A$ is symmetric.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex">
+    <div class="ex-hd"><span class="ex-title">Example 2 — Apr 2 Notes</span><span class="ex-src">Is it an inner product?</span></div>
+    <div class="ex-body">
+      <p>$A=\begin{pmatrix}1&3\\3&1\end{pmatrix}$. $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$. Is $B$ an inner product on $\mathbb{R}^2$?</p>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans-box"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="sn">1</span><span class="sb2">$A=A^\top$ ✓, so $B$ is a symmetric bilinear form.</span></div>
+          <div class="step"><span class="sn">2</span><span class="sb2">Eigenvalues: $\det(A-\lambda I)=(\lambda-1)^2-9=\lambda^2-2\lambda-8=(\lambda-4)(\lambda+2)$. Eigenvalues: $\lambda_1=4$ and $\lambda_2=-2$.</span></div>
+          <div class="step"><span class="sn">3</span><span class="sb2">Since $\lambda_2=-2<0$, the quadratic form $Q$ is <strong>indefinite</strong> (not positive definite). Therefore $B$ is <strong>not an inner product</strong>. Specifically, $Q(\mathbf{v}_2)<0$ for the eigenvector $\mathbf{v}_2$ of $\lambda_2=-2$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>True / False Practice</h3>
+  <div class="tf-set">
+    <div class="tf-item"><div class="tf-q">26. Every inner product on $\mathbb{R}^n$ is a symmetric bilinear form.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf75a')" id="tf75a-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf75a')">False</button></div><span id="tf75a" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>An inner product satisfies symmetry and bilinearity (conditions i–iii of a symmetric bilinear form) plus the extra positivity condition (iv). So every inner product is automatically a symmetric bilinear form — but not vice versa.</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">27. $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ for symmetric $A$ is an inner product if and only if all eigenvalues of $A$ are positive.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf75b')" id="tf75b-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf75b')">False</button></div><span id="tf75b" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>$B$ is an inner product $\Leftrightarrow$ $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}>0$ for all $\mathbf{v}\neq\mathbf{0}$ $\Leftrightarrow$ $Q$ is positive definite $\Leftrightarrow$ all eigenvalues of $A>0$ (Theorem 5).</p></div></div>
+    </div>
+    <div class="tf-item"><div class="tf-q">28. If $B$ is a symmetric bilinear form that is not an inner product, then there must exist $\mathbf{v}\neq\mathbf{0}$ with $B(\mathbf{v},\mathbf{v})\leq0$.</div>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','tf75c')" id="tf75c-ans">True</button><button class="tfb f" onclick="dotf(this,'F','tf75c')">False</button></div><span id="tf75c" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True</div><p>The only condition separating a symmetric bilinear form from an inner product is positive definiteness. If it fails, there exists $\mathbf{v}\neq\mathbf{0}$ with $Q(\mathbf{v})=B(\mathbf{v},\mathbf{v})\leq0$.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ALL PROOF TEMPLATES -->
+<div class="topic" id="proofs">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0e7490">★</div>
+    <div><h2>All Proof Templates</h2><div class="topic-sub">Write these from memory before the exam</div></div>
+  </div>
+  <div class="summary-card">
+    <h4>8 Proof Types Mezo Tests</h4>
+    <div class="summary-grid">
+      <div class="sg-item"><strong>Type 1</strong>W is a subspace (3-step)</div>
+      <div class="sg-item"><strong>Type 2</strong>Set is linearly independent</div>
+      <div class="sg-item"><strong>Type 3</strong>λⁿ is eigenvalue of Aⁿ</div>
+      <div class="sg-item"><strong>Type 4</strong>ker(T) is a subspace</div>
+      <div class="sg-item"><strong>Type 5</strong>Pythagorean converse</div>
+      <div class="sg-item"><strong>Type 6</strong>Symmetric matrix eigenvectors ⊥</div>
+      <div class="sg-item"><strong>Type 7</strong>Orthogonal matrix preserves norm</div>
+      <div class="sg-item"><strong>Type 8</strong>A is NOT diagonalizable (cite Thm 7)</div>
+    </div>
+  </div>
+  <div class="block note"><div class="block-lbl">Type 6 — Key Proof Move</div>
+    <p>$\lambda_1\langle\mathbf{v}_1,\mathbf{v}_2\rangle=\langle A\mathbf{v}_1,\mathbf{v}_2\rangle\underbrace{=}_{\text{use }A=A^\top}\langle\mathbf{v}_1,A\mathbf{v}_2\rangle=\lambda_2\langle\mathbf{v}_1,\mathbf{v}_2\rangle$</p>
+    <p>$(\lambda_1-\lambda_2)\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$. Since $\lambda_1\neq\lambda_2$: $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$. $\square$</p>
+  </div>
+</div>
+
+<!-- FINAL CHECKLIST -->
+<div class="topic" id="checklist">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0e7490">✓</div>
+    <div><h2>Final Exam Checklist</h2><div class="topic-sub">Can you do each of these cold?</div></div>
+  </div>
+  <h3>Definitions — write from memory</h3>
+  <ul class="checklist">
+    <li>Subspace (3 conditions)</li>
+    <li>Linear independence (using $c_1\mathbf{v}_1+\cdots=\mathbf{0}$)</li>
+    <li>Basis and dimension</li>
+    <li>Linear transformation (2 conditions)</li>
+    <li>Eigenvalue and eigenvector (including "nonzero")</li>
+    <li>Inner product (4 axioms)</li>
+    <li>Orthogonal matrix ($P^\top P=I$)</li>
+    <li>Orthogonally diagonalizable</li>
+    <li>Quadratic form $Q(\mathbf{v})=\mathbf{v}^\top A\mathbf{v}$ for symmetric $A$</li>
+    <li>Positive definite / negative definite / indefinite</li>
+    <li>Symmetric bilinear form (3 conditions — NOT the same as inner product)</li>
+  </ul>
+  <h3>Proofs — reproduce from scratch</h3>
+  <ul class="checklist">
+    <li>Show a given set is a subspace (3-step proof)</li>
+    <li>Show $\{p_1,p_2,p_3\}$ is linearly independent in $\mathcal{P}$</li>
+    <li>Show $\lambda^k$ is eigenvalue of $A^k$</li>
+    <li>Show $\ker(T)$ is a subspace</li>
+    <li>Show $H_1\cap H_2$ is a subspace</li>
+    <li>Show $\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2\Rightarrow\mathbf{u}\perp\mathbf{v}$</li>
+    <li>Prove eigenvectors of symmetric matrix for distinct eigenvalues are orthogonal</li>
+    <li>Prove orthogonal matrix preserves norms</li>
+  </ul>
+  <h3>Computations — do end-to-end</h3>
+  <ul class="checklist">
+    <li>Find change-of-basis matrix $P_{\mathcal{B}\leftarrow\mathcal{A}}$ and use it</li>
+    <li>Compute $[T]_\mathcal{B}$ for a linear transformation</li>
+    <li>Diagonalize a $2\times2$ or $3\times3$ matrix (find $P$, $D$)</li>
+    <li>Find complex eigenvalues and eigenspaces (over $\mathbb{C}$)</li>
+    <li>Compute distance between vectors in $\mathbb{C}^n$</li>
+    <li>Find orthogonal complement $W^\perp$ in $\mathbb{C}^n$</li>
+    <li>Apply Gram-Schmidt to produce orthogonal/orthonormal basis</li>
+    <li>Compute $\text{proj}_W\mathbf{y}$ and distance from $\mathbf{y}$ to $W$</li>
+    <li>Compute inner products and projections in $C[a,b]$ (with integrals)</li>
+    <li>Orthogonally diagonalize a symmetric matrix (full pipeline: $A=PDP^\top$)</li>
+    <li>Verify a matrix is orthogonal ($P^\top P=I$)</li>
+    <li>Convert symmetric matrix $\leftrightarrow$ quadratic form (read off polynomial, build matrix)</li>
+    <li>Apply Principal Axes Theorem: change variable $\mathbf{y}=P^\top\mathbf{v}$ to eliminate cross terms</li>
+    <li>Classify $Q$ as positive definite / negative definite / indefinite using eigenvalues</li>
+    <li>Determine if $B(\mathbf{u},\mathbf{v})=\mathbf{u}^\top A\mathbf{v}$ is an inner product (check eigenvalues of $A$)</li>
+  </ul>
+  <h3>True/False Patterns — know instantly</h3>
+  <ul class="checklist">
+    <li>$\dim(\mathcal{P}_n)=n+1$ (not $n$)</li>
+    <li>$\mathbb{R}^2$ is NOT a subspace of $\mathbb{R}^3$</li>
+    <li>Col($A$) basis uses original columns, not REF columns</li>
+    <li>$A$ invertible $\Leftrightarrow$ $0$ not an eigenvalue</li>
+    <li>Normalizing preserves orthogonality</li>
+    <li>Symmetric $\Leftrightarrow$ orthogonally diagonalizable</li>
+    <li>Orthogonal matrix: $\det=\pm1$ (not just $+1$)</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PART II — MOCK FINAL
+══════════════════════════════════════════ -->
+<div class="part-divider" id="part2">
+  <span class="part-label green">PART II — Complete Mock Final Exam</span>
+  <div class="part-hd">
+    <h2>Structured to Mezo's Format — HW 5–11</h2>
+    <p>Part 1: Long-answer computational (show all work). Part 2: Multiple choice conceptual. Every question maps to a specific homework assignment.</p>
+  </div>
+</div>
+
+<!-- ── MOCK: §5 EIGENVALUES ── -->
+<div class="topic" id="mock-p1">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#1c7c4a">LA</div>
+    <div><h2>Part 1A — Eigenvalues &amp; Diagonalization</h2><div class="topic-sub">HW 5 · §5.4–5.5 · Quiz 3–5</div></div>
+  </div>
+
+  <!-- LA-1 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">LA-1 · Easy</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 §5.4</span><span class="qcard-pts">5 pts</span></div></div>
+    <div class="qbody">
+      <p>Diagonalize $A = \begin{pmatrix}6 & -1 \\ 2 & 3\end{pmatrix}$, or explain why it cannot be diagonalized.</p>
+      <textarea class="work" rows="8" placeholder="Step 1: det(A − xI). Step 2: eigenvalues. Step 3: eigenspaces. Step 4: write P and D."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">1</span><span class="step-body">$\det(A-xI)=(6-x)(3-x)+2=x^2-9x+20=(x-5)(x-4)$. Eigenvalues: $\lambda_1=5$, $\lambda_2=4$.</span></div>
+          <div class="step"><span class="step-n">2</span><span class="step-body">$\lambda=5$: eigenspace $=\text{Span}\left\{\begin{pmatrix}1\\1\end{pmatrix}\right\}$. $\lambda=4$: eigenspace $=\text{Span}\left\{\begin{pmatrix}1\\2\end{pmatrix}\right\}$.</span></div>
+          <div class="step"><span class="step-n">3</span><span class="step-body">Two distinct eigenvalues $\Rightarrow$ diagonalizable. $P=\begin{pmatrix}1&1\\1&2\end{pmatrix}$, $D=\begin{pmatrix}5&0\\0&4\end{pmatrix}$, $A=PDP^{-1}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LA-2 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">LA-2 · Medium</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 §5.5</span><span class="qcard-pts">7 pts</span></div></div>
+    <div class="qbody">
+      <p>Let $T: \mathcal{P}_1 \to \mathcal{P}_1$ be defined by $T(p) = \displaystyle\int_{-1}^{1} p(t)\,dt + \left(\int_0^1 p(t)\,dt\right)x$.</p>
+      <p><strong>(a)</strong> Show $T$ is a linear transformation. &nbsp; <strong>(b)</strong> Let $\mathcal{B} = \{1, x\}$. Compute $[T]_\mathcal{B}$. &nbsp; <strong>(c)</strong> Find eigenvalues of $[T]_\mathcal{B}$.</p>
+      <textarea class="work" rows="10" placeholder="(a) Linearity of integrals. (b) Apply T to 1 and x separately, write as coordinate vectors. (c) Characteristic polynomial of the 2×2 matrix."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">Integrals are linear: $T(p+q)=T(p)+T(q)$ and $T(cp)=cT(p)$. So $T$ is linear.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$T(1)=2+x$, so $[T(1)]_\mathcal{B}=(2,1)^\top$. $T(x)=\frac{1}{2}x$, so $[T(x)]_\mathcal{B}=(0,\frac{1}{2})^\top$. Thus $[T]_\mathcal{B}=\begin{pmatrix}2&0\\1&\frac{1}{2}\end{pmatrix}$.</span></div>
+          <div class="step"><span class="step-n">c</span><span class="step-body">$\det([T]_\mathcal{B}-xI)=(2-x)(\frac{1}{2}-x)$. Eigenvalues: $\lambda_1=2$, $\lambda_2=\frac{1}{2}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LA-3 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">LA-3 · Medium</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 §5.5 + Quiz 5</span><span class="qcard-pts">6 pts</span></div></div>
+    <div class="qbody">
+      <p>Find the <strong>complex</strong> eigenvalues and a basis for each eigenspace in $\mathbb{C}^2$ for $A = \begin{pmatrix}0 & 1 \\ -8 & 4\end{pmatrix}$.</p>
+      <textarea class="work" rows="8" placeholder="Characteristic polynomial → quadratic formula → complex roots → row reduce (A − λI) over ℂ"></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution (Quiz 5 exact)</div>
+          <div class="step"><span class="step-n">1</span><span class="step-body">$\det(A-xI)=x^2-4x+8$. Roots: $\lambda=2\pm 2i$.</span></div>
+          <div class="step"><span class="step-n">2</span><span class="step-body">$(2+2i)$-eigenspace: row reduce $A-(2+2i)I$. Basis: $\left\{\begin{pmatrix}\frac{1-i}{4}\\1\end{pmatrix}\right\}$.</span></div>
+          <div class="step"><span class="step-n">3</span><span class="step-body">By conjugate theorem (§5.5): $(2-2i)$-eigenspace basis: $\left\{\begin{pmatrix}\frac{1+i}{4}\\1\end{pmatrix}\right\}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MOCK: §6 INNER PRODUCTS ── -->
+<div class="topic" id="mock-p2">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#5b21b6">IB</div>
+    <div><h2>Part 1B — Inner Products &amp; Orthogonality</h2><div class="topic-sub">HW 6–9 · §6.1–6.7 · Quiz 6–9</div></div>
+  </div>
+
+  <!-- IB-1 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">IB-1 · Easy</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW6 §6.1</span><span class="qcard-pts">4 pts</span></div></div>
+    <div class="qbody">
+      <p>Using $\langle\mathbf{u},\mathbf{v}\rangle = u_1\overline{v_1}+u_2\overline{v_2}$ on $\mathbb{C}^2$:</p>
+      <p><strong>(a)</strong> Compute $\text{dist}\!\left(\begin{pmatrix}-1+i\\2i\end{pmatrix},\begin{pmatrix}3\\-2+i\end{pmatrix}\right)$. &nbsp; <strong>(b)</strong> Are $\mathbf{w}_1=\begin{pmatrix}1\\i\\2\end{pmatrix}$ and $\mathbf{w}_2=\begin{pmatrix}i\\1\\0\end{pmatrix}$ orthogonal in $\mathbb{C}^3$?</p>
+      <textarea class="work" rows="6" placeholder="(a) dist = ‖u−v‖. (b) Compute ⟨w₁,w₂⟩ — conjugate the SECOND vector."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution (Quiz 6)</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$\mathbf{u}-\mathbf{v}=(-4+i,\,2+i)^\top$. $\text{dist}=\sqrt{17+5}=\sqrt{22}$.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$\langle\mathbf{w}_1,\mathbf{w}_2\rangle=1\cdot(-i)+i\cdot 1+2\cdot 0=0$. Yes, orthogonal.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IB-2 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">IB-2 · Medium</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW7 §6.2 + Quiz 7</span><span class="qcard-pts">5 pts</span></div></div>
+    <div class="qbody">
+      <p>Using standard inner product on $\mathbb{C}^2$, compute $W^\perp$ where $W = \text{Span}\left\{\begin{pmatrix}i\\1\end{pmatrix}\right\}\subseteq\mathbb{C}^2$.</p>
+      <textarea class="work" rows="6" placeholder="Let w = (x,y)ᵀ. Set ⟨w, v⟩ = 0 for v = (i,1)ᵀ. Remember to conjugate v."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution (Quiz 7)</div>
+          <div class="step"><span class="step-n">1</span><span class="step-body">$\langle(x,y)^\top,(i,1)^\top\rangle=x(-i)+y=0$, so $y=ix$.</span></div>
+          <div class="step"><span class="step-n">2</span><span class="step-body">$W^\perp=\text{Span}\left\{\begin{pmatrix}1\\i\end{pmatrix}\right\}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IB-3 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">IB-3 · Hard</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW8 §6.3</span><span class="qcard-pts">9 pts</span></div></div>
+    <div class="qbody">
+      <p>Apply Gram-Schmidt to $\mathbf{x}_1=(1,1,0)^\top$, $\mathbf{x}_2=(1,0,1)^\top$, $\mathbf{x}_3=(0,1,1)^\top$ to produce an orthogonal basis, then normalize.</p>
+      <textarea class="work" rows="12" placeholder="v₁ = x₁. v₂ = x₂ − (⟨x₂,v₁⟩/‖v₁‖²)v₁. v₃ = x₃ − (⟨x₃,v₁⟩/‖v₁‖²)v₁ − (⟨x₃,v₂⟩/‖v₂‖²)v₂. Then normalize."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">v₁</span><span class="step-body">$\mathbf{v}_1=(1,1,0)^\top$, $\|\mathbf{v}_1\|^2=2$.</span></div>
+          <div class="step"><span class="step-n">v₂</span><span class="step-body">$\langle\mathbf{x}_2,\mathbf{v}_1\rangle=1$. $\mathbf{v}_2=(1,0,1)^\top-\frac{1}{2}(1,1,0)^\top=(\frac{1}{2},-\frac{1}{2},1)^\top$, $\|\mathbf{v}_2\|^2=\frac{3}{2}$.</span></div>
+          <div class="step"><span class="step-n">v₃</span><span class="step-body">$\langle\mathbf{x}_3,\mathbf{v}_1\rangle=1$, $\langle\mathbf{x}_3,\mathbf{v}_2\rangle=\frac{1}{2}$. $\mathbf{v}_3=(0,1,1)^\top-\frac{1}{2}(1,1,0)^\top-\frac{1}{3}(\frac{1}{2},-\frac{1}{2},1)^\top=(-\frac{2}{3},\frac{2}{3},\frac{2}{3})^\top$.</span></div>
+          <div class="step"><span class="step-n">norm</span><span class="step-body">$\mathbf{w}_1=\frac{1}{\sqrt{2}}(1,1,0)^\top$, $\mathbf{w}_2=\sqrt{\frac{2}{3}}(\frac{1}{2},-\frac{1}{2},1)^\top$, $\mathbf{w}_3=\frac{1}{\sqrt{3}}(-1,1,1)^\top$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IB-4 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">IB-4 · Medium</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW8 §6.4 + Quiz 8</span><span class="qcard-pts">6 pts</span></div></div>
+    <div class="qbody">
+      <p>Let $\mathbf{v}_1=(1,1,1,1)^\top$, $\mathbf{v}_2=(1,-1,1,-1)^\top$, $\mathbf{v}_3=(1,1,-1,-1)^\top$ (orthogonal) and $\mathbf{x}=(1,0,0,0)^\top$. Let $W=\text{Span}\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$.</p>
+      <p><strong>(a)</strong> Compute $\text{proj}_W\,\mathbf{x}$. &nbsp; <strong>(b)</strong> Compute $\text{dist}(\mathbf{x},W)$.</p>
+      <textarea class="work" rows="8" placeholder="projW(x) = Σ(⟨x,vⱼ⟩/‖vⱼ‖²)vⱼ. Then dist = ‖x − projW(x)‖."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution (Quiz 8)</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$\langle\mathbf{x},\mathbf{v}_j\rangle=1$, $\|\mathbf{v}_j\|^2=4$ for each $j$. $\text{proj}_W\mathbf{x}=\frac{1}{4}(\mathbf{v}_1+\mathbf{v}_2+\mathbf{v}_3)=(3/4,1/4,1/4,-1/4)^\top$.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$\mathbf{x}-\text{proj}=(1/4,-1/4,-1/4,1/4)^\top$. $\text{dist}=\sqrt{4\cdot(1/4)^2}=\frac{1}{2}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IB-5 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">IB-5 · Hard</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW9 §6.7 + Quiz 9</span><span class="qcard-pts">8 pts</span></div></div>
+    <div class="qbody">
+      <p>Use $\langle f,g\rangle = \int_{-1}^{1} f(t)g(t)\,dt$ on $C[-1,1]$. Let $p_0=1$, $p_1=x$, $p_2=x^2$, $W=\text{Span}\{p_0,p_1\}$.</p>
+      <p><strong>(a)</strong> Compute $\text{proj}_W\,p_2$. &nbsp; <strong>(b)</strong> Best approximation to $x^2$ by degree $\leq1$? &nbsp; <strong>(c)</strong> Normalize $p_0$ and $p_1$.</p>
+      <textarea class="work" rows="10" placeholder="(a) projW(p₂) = (⟨p₂,p₀⟩/⟨p₀,p₀⟩)p₀ + (⟨p₂,p₁⟩/⟨p₁,p₁⟩)p₁. Odd-function trick eliminates the p₁ term."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution (Quiz 9 + HW9)</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$\langle p_2,p_0\rangle=\frac{2}{3}$, $\langle p_0,p_0\rangle=2$, $\langle p_2,p_1\rangle=0$ (odd). $\text{proj}_W p_2=\frac{1}{3}$.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">Best approximation is $\frac{1}{3}$ (a constant polynomial).</span></div>
+          <div class="step"><span class="step-n">c</span><span class="step-body">$\|p_0\|=\sqrt{2}$, so $w_0=\frac{1}{\sqrt{2}}$. $\|p_1\|=\sqrt{2/3}$, so $w_1=\sqrt{3/2}\,x$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MOCK: §7 SPECTRAL ── -->
+<div class="topic" id="mock-p3">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#92400e">SC</div>
+    <div><h2>Part 1C — Symmetric &amp; Orthogonal Matrices</h2><div class="topic-sub">HW 10–11 · §7.1–7.2</div></div>
+  </div>
+
+  <!-- SC-1 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">SC-1 · Easy</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW10 §7.1</span><span class="qcard-pts">5 pts</span></div></div>
+    <div class="qbody">
+      <p>Let $P=\begin{pmatrix}\cos\theta & -\sin\theta\\\sin\theta & \cos\theta\end{pmatrix}$. <strong>(a)</strong> Show $P$ is orthogonal by verifying $PP^\top=I$. <strong>(b)</strong> What geometric transformation does $P$ represent?</p>
+      <textarea class="work" rows="7" placeholder="(a) Compute PP^T. Use cos²θ + sin²θ = 1. (b) Multiply P by standard basis vectors."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$PP^\top=\begin{pmatrix}\cos^2\theta+\sin^2\theta&0\\0&\sin^2\theta+\cos^2\theta\end{pmatrix}=I$ ✓</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$Pe_1=(\cos\theta,\sin\theta)^\top$, $Pe_2=(-\sin\theta,\cos\theta)^\top$. $P$ is a <strong>rotation by $\theta$</strong> counterclockwise.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SC-2 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">SC-2 · Hard</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW11 §7.2</span><span class="qcard-pts">10 pts</span></div></div>
+    <div class="qbody">
+      <p>Orthogonally diagonalize $A=\begin{pmatrix}3&1\\1&3\end{pmatrix}$. Write $A=PDP^\top$.</p>
+      <textarea class="work" rows="12" placeholder="(a) Eigenvalues via characteristic polynomial. (b) Eigenvectors, verify orthogonal. (c) Normalize. (d) Write P, D."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$\det(A-xI)=(x-4)(x-2)$. Eigenvalues: $\lambda_1=4$, $\lambda_2=2$.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$\lambda=4$: $\mathbf{v}_1=(1,1)^\top$. $\lambda=2$: $\mathbf{v}_2=(1,-1)^\top$. Check: $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$ ✓ (Thm 1 §7.1).</span></div>
+          <div class="step"><span class="step-n">c</span><span class="step-body">$\mathbf{w}_1=\frac{1}{\sqrt{2}}(1,1)^\top$, $\mathbf{w}_2=\frac{1}{\sqrt{2}}(1,-1)^\top$.</span></div>
+          <div class="step"><span class="step-n">d</span><span class="step-body">$P=\frac{1}{\sqrt{2}}\begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $D=\begin{pmatrix}4&0\\0&2\end{pmatrix}$, $A=PDP^\top$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SC-3 -->
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">SC-3 · Hard</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW11 §7.2</span><span class="qcard-pts">10 pts</span></div></div>
+    <div class="qbody">
+      <p>Orthogonally diagonalize $A=\begin{pmatrix}6&2&0\\2&6&0\\0&0&3\end{pmatrix}$. Write $A=PDP^\top$.</p>
+      <textarea class="work" rows="12" placeholder="Expand det(A−xI) along col 3 (zeros). Factor carefully. Gram-Schmidt only needed if eigenspace dim > 1."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Solution</button>
+        <div class="ans"><div class="ans-lbl">Solution</div>
+          <div class="step"><span class="step-n">a</span><span class="step-body">$\det(A-xI)=(3-x)(x-4)(x-8)$. Eigenvalues: $\lambda=3,4,8$.</span></div>
+          <div class="step"><span class="step-n">b</span><span class="step-body">$\lambda=8$: $\mathbf{v}_1=(1,1,0)^\top$. $\lambda=4$: $\mathbf{v}_2=(1,-1,0)^\top$. $\lambda=3$: $\mathbf{v}_3=(0,0,1)^\top$. All distinct $\Rightarrow$ automatically orthogonal. Verify: $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$ ✓.</span></div>
+          <div class="step"><span class="step-n">c</span><span class="step-body">$\mathbf{w}_1=\frac{1}{\sqrt{2}}(1,1,0)^\top$, $\mathbf{w}_2=\frac{1}{\sqrt{2}}(1,-1,0)^\top$, $\mathbf{w}_3=(0,0,1)^\top$.</span></div>
+          <div class="step"><span class="step-n">d</span><span class="step-body">$P=\begin{pmatrix}1/\sqrt{2}&1/\sqrt{2}&0\\1/\sqrt{2}&-1/\sqrt{2}&0\\0&0&1\end{pmatrix}$, $D=\begin{pmatrix}8&0&0\\0&4&0\\0&0&3\end{pmatrix}$.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MOCK: MCQ ── -->
+<div class="topic" id="mock-p4">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0071e3">MC</div>
+    <div><h2>Part 2 — Multiple Choice &amp; T/F</h2><div class="topic-sub">Conceptual · All HW 5–11 · Quizzes 3–9</div></div>
+  </div>
+
+  <p class="hw-sep">§5 — Eigenvalues &amp; Diagonalization (HW 5)</p>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-1</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 / Quiz 3</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>$A \in M_{n\times n}$ is invertible if and only if:</p>
+      <ul class="choices" data-c="C" id="mc1">
+        <li onclick="mc(this,'A','mc1')"><span class="clabel">A</span>$A$ has at least one nonzero eigenvalue.</li>
+        <li onclick="mc(this,'B','mc1')"><span class="clabel">B</span>All eigenvalues of $A$ are positive.</li>
+        <li onclick="mc(this,'C','mc1')"><span class="clabel">C</span>$0$ is not an eigenvalue of $A$.</li>
+        <li onclick="mc(this,'D','mc1')"><span class="clabel">D</span>$A$ is diagonalizable.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">C</div><p>$A$ invertible $\Leftrightarrow$ $Ax=0$ only has $x=0$ $\Leftrightarrow$ $0$ is not an eigenvalue.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-2</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 §5.4</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>$A\in M_{4\times4}$ has characteristic polynomial $(x-2)^3(x+1)$. Which is guaranteed?</p>
+      <ul class="choices" data-c="B" id="mc2">
+        <li onclick="mc(this,'A','mc2')"><span class="clabel">A</span>$A$ is diagonalizable.</li>
+        <li onclick="mc(this,'B','mc2')"><span class="clabel">B</span>$A$ has eigenvalues $2$ (multiplicity 3) and $-1$ (multiplicity 1).</li>
+        <li onclick="mc(this,'C','mc2')"><span class="clabel">C</span>$\dim(\text{Nul}(A-2I))=3$.</li>
+        <li onclick="mc(this,'D','mc2')"><span class="clabel">D</span>$A$ has 4 linearly independent eigenvectors.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">B</div><p>B is the definition of algebraic multiplicity — always true. A and D require geometric = algebraic multiplicity, not guaranteed. C: geometric ≤ algebraic = 3, but could be 1 or 2.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-3 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 / Quiz 5</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>Only linear transformations on <em>finite-dimensional</em> vector spaces can have eigenvectors.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc3tf')">True</button><button class="tfb f" onclick="dotf(this,'F','mc3tf')" id="mc3tf-ans">False</button></div><span id="mc3tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 5)</div><p>$D(e^{\lambda x})=\lambda e^{\lambda x}$ — the derivative on infinite-dimensional function spaces has eigenvectors.</p></div></div>
+    </div>
+  </div>
+
+  <p class="hw-sep" style="margin-top:24px">§6 — Inner Products &amp; Orthogonality (HW 6–9)</p>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-4</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW6 §6.1</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>Which is the correct formula for the standard inner product on $\mathbb{C}^n$ (Mezo's convention)?</p>
+      <ul class="choices" data-c="B" id="mc4">
+        <li onclick="mc(this,'A','mc4')"><span class="clabel">A</span>$\langle\mathbf{u},\mathbf{v}\rangle = \sum_k u_k v_k$</li>
+        <li onclick="mc(this,'B','mc4')"><span class="clabel">B</span>$\langle\mathbf{u},\mathbf{v}\rangle = \sum_k u_k \overline{v_k}$</li>
+        <li onclick="mc(this,'C','mc4')"><span class="clabel">C</span>$\langle\mathbf{u},\mathbf{v}\rangle = \sum_k \overline{u_k} v_k$</li>
+        <li onclick="mc(this,'D','mc4')"><span class="clabel">D</span>$\langle\mathbf{u},\mathbf{v}\rangle = \sum_k |u_k v_k|$</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">B (Mezo's convention)</div><p>Conjugate the second slot: $\langle\mathbf{u},\mathbf{v}\rangle=\sum u_k\overline{v_k}$. This ensures $\langle\mathbf{v},\mathbf{v}\rangle\geq0$.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-5 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW6 / Quiz 6</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>If $\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 = \|\mathbf{u}+\mathbf{v}\|^2$, then $\mathbf{u}$ and $\mathbf{v}$ are orthogonal.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc5tf')" id="mc5tf-ans">True</button><button class="tfb f" onclick="dotf(this,'F','mc5tf')">False</button></div><span id="mc5tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 6)</div><p>Expand $\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+2\langle\mathbf{u},\mathbf{v}\rangle+\|\mathbf{v}\|^2$. Equal means $2\langle\mathbf{u},\mathbf{v}\rangle=0$. Pythagorean converse.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-6 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW7 / Quiz 7</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>If $\{\mathbf{u}_1,\ldots,\mathbf{u}_k\}$ is an orthogonal set of nonzero vectors and you normalize each one, the resulting set may fail to be orthogonal.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc6tf')">True</button><button class="tfb f" onclick="dotf(this,'F','mc6tf')" id="mc6tf-ans">False</button></div><span id="mc6tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 7)</div><p>$\langle\frac{\mathbf{u}}{\|\mathbf{u}\|},\frac{\mathbf{v}}{\|\mathbf{v}\|}\rangle=\frac{\langle\mathbf{u},\mathbf{v}\rangle}{\|\mathbf{u}\|\|\mathbf{v}\|}=0$. Scaling never changes orthogonality.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-7</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW7 §6.2</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>Let $\{\mathbf{u}_1,\ldots,\mathbf{u}_k\}$ be an <em>orthonormal</em> basis for $W$ and $\mathbf{y}\in W$. Then $\mathbf{y}=$</p>
+      <ul class="choices" data-c="A" id="mc7">
+        <li onclick="mc(this,'A','mc7')"><span class="clabel">A</span>$\langle\mathbf{y},\mathbf{u}_1\rangle\mathbf{u}_1+\cdots+\langle\mathbf{y},\mathbf{u}_k\rangle\mathbf{u}_k$</li>
+        <li onclick="mc(this,'B','mc7')"><span class="clabel">B</span>$\frac{\langle\mathbf{y},\mathbf{u}_1\rangle}{\|\mathbf{u}_1\|^2}\mathbf{u}_1+\cdots+\frac{\langle\mathbf{y},\mathbf{u}_k\rangle}{\|\mathbf{u}_k\|^2}\mathbf{u}_k$</li>
+        <li onclick="mc(this,'C','mc7')"><span class="clabel">C</span>They are the same formula.</li>
+        <li onclick="mc(this,'D','mc7')"><span class="clabel">D</span>$\mathbf{y}=\text{proj}_W\mathbf{y}$ only if $\mathbf{y}\perp W^\perp$.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">A</div><p>For orthonormal basis $\|\mathbf{u}_j\|^2=1$, so denominators disappear. B is for orthogonal (not orthonormal) basis.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-8 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW8 / Quiz 8</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>For any vector $\mathbf{y}$ and any subspace $W$, the vector $\mathbf{y}-\text{proj}_W\mathbf{y}$ is orthogonal to $W$.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc8tf')" id="mc8tf-ans">True</button><button class="tfb f" onclick="dotf(this,'F','mc8tf')">False</button></div><span id="mc8tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Quiz 8)</div><p>Orthogonal decomposition theorem: $\mathbf{y}=\text{proj}_W\mathbf{y}+\mathbf{z}$ where $\mathbf{z}=\mathbf{y}-\text{proj}_W\mathbf{y}\in W^\perp$.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-9 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW9 / Quiz 9</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>Two vectors that are orthogonal under the standard inner product on $\mathbb{R}^2$ are orthogonal under every inner product on $\mathbb{R}^2$.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc9tf')">True</button><button class="tfb f" onclick="dotf(this,'F','mc9tf')" id="mc9tf-ans">False</button></div><span id="mc9tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">False (Quiz 9)</div><p>$(1,1)$ and $(1,-1)$ orthogonal in standard. Under $4u_1v_1+5u_2v_2$: value is $4-5=-1\neq0$.</p></div></div>
+    </div>
+  </div>
+
+  <p class="hw-sep" style="margin-top:24px">§7 — Symmetric &amp; Orthogonal Matrices (HW 10–11)</p>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-10</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW10 §7.1</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>A square matrix $P$ is orthogonal if and only if:</p>
+      <ul class="choices" data-c="C" id="mc10">
+        <li onclick="mc(this,'A','mc10')"><span class="clabel">A</span>All entries of $P$ are $\pm1$ or $0$.</li>
+        <li onclick="mc(this,'B','mc10')"><span class="clabel">B</span>$\det(P)=1$.</li>
+        <li onclick="mc(this,'C','mc10')"><span class="clabel">C</span>$P^\top P=I$, equivalently $P^{-1}=P^\top$.</li>
+        <li onclick="mc(this,'D','mc10')"><span class="clabel">D</span>$P$ is symmetric.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">C</div><p>$P^\top P=I$ is the definition. $\det(P)=\pm1$ (not necessarily $+1$ — reflections have $\det=-1$). D is wrong: $2I$ is symmetric but not orthogonal.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-11 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW10 / Notes Mar 19</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>Every real symmetric matrix is diagonalizable.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc11tf')" id="mc11tf-ans">True</button><button class="tfb f" onclick="dotf(this,'F','mc11tf')">False</button></div><span id="mc11tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Spectral Theorem)</div><p>Every real symmetric matrix is <em>orthogonally</em> diagonalizable — stronger than just diagonalizable. All eigenvalues are real.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-12</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW11 §7.2</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>$A$ is symmetric with eigenvalues $\lambda_1\neq\lambda_2$ and eigenvectors $\mathbf{v}_1,\mathbf{v}_2$. Which is true?</p>
+      <ul class="choices" data-c="D" id="mc12">
+        <li onclick="mc(this,'A','mc12')"><span class="clabel">A</span>$\mathbf{v}_1$ and $\mathbf{v}_2$ are parallel.</li>
+        <li onclick="mc(this,'B','mc12')"><span class="clabel">B</span>$\langle\mathbf{v}_1,\mathbf{v}_2\rangle$ depends on the specific eigenvalues.</li>
+        <li onclick="mc(this,'C','mc12')"><span class="clabel">C</span>$\mathbf{v}_1$ and $\mathbf{v}_2$ may or may not be orthogonal.</li>
+        <li onclick="mc(this,'D','mc12')"><span class="clabel">D</span>$\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$ always.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">D — Always orthogonal (Theorem 1, §7.1)</div><p>$\lambda_1\langle\mathbf{v}_1,\mathbf{v}_2\rangle=\langle A\mathbf{v}_1,\mathbf{v}_2\rangle=\langle\mathbf{v}_1,A\mathbf{v}_2\rangle=\lambda_2\langle\mathbf{v}_1,\mathbf{v}_2\rangle$. Since $\lambda_1\neq\lambda_2$: inner product $=0$.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-13 — T/F</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW11 §7.2</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>If $A$ is orthogonally diagonalizable, then $A$ must be symmetric.</p>
+      <div class="tf-btns"><button class="tfb t" onclick="dotf(this,'T','mc13tf')" id="mc13tf-ans">True</button><button class="tfb f" onclick="dotf(this,'F','mc13tf')">False</button></div><span id="mc13tf" style="display:none"></span>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans-box"><div class="ans-lbl">True (Spectral Theorem, both directions)</div><p>If $A=PDP^\top$ with $P$ orthogonal: $A^\top=PD^\top P^\top=PDP^\top=A$. So $A$ is symmetric. The Spectral Theorem is an iff.</p></div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">MC-14</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW10 §7.1</span><span class="qcard-pts">1 pt</span></div></div>
+    <div class="qbody">
+      <p>If $P$ is orthogonal, then for any vectors $\mathbf{u},\mathbf{v}$:</p>
+      <ul class="choices" data-c="B" id="mc14">
+        <li onclick="mc(this,'A','mc14')"><span class="clabel">A</span>$\langle P\mathbf{u},P\mathbf{v}\rangle = 2\langle\mathbf{u},\mathbf{v}\rangle$</li>
+        <li onclick="mc(this,'B','mc14')"><span class="clabel">B</span>$\langle P\mathbf{u},P\mathbf{v}\rangle = \langle\mathbf{u},\mathbf{v}\rangle$</li>
+        <li onclick="mc(this,'C','mc14')"><span class="clabel">C</span>$\|P\mathbf{u}\| = \|\mathbf{u}\|^2$</li>
+        <li onclick="mc(this,'D','mc14')"><span class="clabel">D</span>$P\mathbf{u}\perp P\mathbf{v}$ iff $\|\mathbf{u}\|=\|\mathbf{v}\|$.</li>
+      </ul>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Explain</button><div class="ans"><div class="ans-lbl">B</div><p>$\langle P\mathbf{u},P\mathbf{v}\rangle=\mathbf{v}^\top P^\top P\mathbf{u}=\mathbf{v}^\top I\mathbf{u}=\langle\mathbf{u},\mathbf{v}\rangle$. Orthogonal matrices preserve inner products, norms, and angles.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROOF BANK ── -->
+<div class="topic" id="mock-p5">
+  <div class="topic-hd">
+    <div class="topic-num" style="background:#0e7490">P</div>
+    <div><h2>Proof Bank</h2><div class="topic-sub">Write before revealing — Mezo marks by step</div></div>
+  </div>
+  <p class="sec-desc">These are the proofs most likely to appear as "show that" questions. Write them in full before comparing.</p>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-1 — Subspace proof</span><div style="display:flex;gap:8px"><span class="qcard-hw">§4.1 midterm Q4</span></div></div>
+    <div class="qbody">
+      <p>Let $V$ be a real vector space. Show that $W = \{f\in V : f(0)=f(1)=0\}$ is a subspace of $V$.</p>
+      <textarea class="work" rows="7" placeholder="3 steps. Name the zero. Let f,g ∈ W. Show f+g ∈ W. Let f ∈ W, c ∈ ℝ. Show cf ∈ W."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$z(x)=0$: $z(0)=z(1)=0$. So $z\in W$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">Let $f,g\in W$. $(f+g)(0)=0$, $(f+g)(1)=0$. So $f+g\in W$.</span></div>
+        <div class="step"><span class="step-n">3</span><span class="step-body">Let $f\in W$, $c\in\mathbb{R}$. $(cf)(0)=cf(0)=0$, $(cf)(1)=0$. So $cf\in W$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-2 — ker(T) is a subspace</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 §4.2</span></div></div>
+    <div class="qbody">
+      <p>Let $T:V\to W$ be linear. Show $\ker(T)$ is a subspace of $V$.</p>
+      <textarea class="work" rows="7" placeholder="3 steps. T(0) = 0. If T(u)=T(v)=0 then T(u+v)=0. If T(u)=0 then T(cu)=0."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$T(\mathbf{0})=0\cdot T(\mathbf{0})=\mathbf{0}$, so $\mathbf{0}\in\ker T$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">Let $\mathbf{u},\mathbf{v}\in\ker T$. $T(\mathbf{u}+\mathbf{v})=T(\mathbf{u})+T(\mathbf{v})=\mathbf{0}$. So $\mathbf{u}+\mathbf{v}\in\ker T$.</span></div>
+        <div class="step"><span class="step-n">3</span><span class="step-body">Let $\mathbf{u}\in\ker T$, $c\in\mathbb{R}$. $T(c\mathbf{u})=cT(\mathbf{u})=\mathbf{0}$. So $c\mathbf{u}\in\ker T$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-3 — Eigenvalue proof</span><div style="display:flex;gap:8px"><span class="qcard-hw">§5 midterm Q5</span></div></div>
+    <div class="qbody">
+      <p>Let $\lambda$ be an eigenvalue of $A$. Show $\lambda^k$ is an eigenvalue of $A^k$ for any positive integer $k$.</p>
+      <textarea class="work" rows="7" placeholder="∃ nonzero v with Av = λv. Multiply by A repeatedly."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof (induction)</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$\exists$ nonzero $\mathbf{v}$ s.t. $A\mathbf{v}=\lambda\mathbf{v}$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">Inductive step: $A^{k+1}\mathbf{v}=A(A^k\mathbf{v})=A(\lambda^k\mathbf{v})=\lambda^k(A\mathbf{v})=\lambda^{k+1}\mathbf{v}$.</span></div>
+        <div class="step"><span class="step-n">3</span><span class="step-body">Since $\mathbf{v}\neq\mathbf{0}$, $\mathbf{v}$ is an eigenvector of $A^k$ with eigenvalue $\lambda^k$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-4 — Pythagorean converse</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW6 / Quiz 6</span></div></div>
+    <div class="qbody">
+      <p>Show: if $\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+\|\mathbf{v}\|^2$ then $\langle\mathbf{u},\mathbf{v}\rangle=0$.</p>
+      <textarea class="work" rows="6" placeholder="Expand ‖u+v‖² using inner product. Compare both sides."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$\|\mathbf{u}+\mathbf{v}\|^2=\|\mathbf{u}\|^2+2\langle\mathbf{u},\mathbf{v}\rangle+\|\mathbf{v}\|^2$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">If equal to $\|\mathbf{u}\|^2+\|\mathbf{v}\|^2$, then $2\langle\mathbf{u},\mathbf{v}\rangle=0$, i.e., $\langle\mathbf{u},\mathbf{v}\rangle=0$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-5 — Spectral Theorem key lemma</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW11 / Notes Mar 24</span></div></div>
+    <div class="qbody">
+      <p>Let $A=A^\top$. Suppose $A\mathbf{v}_1=\lambda_1\mathbf{v}_1$, $A\mathbf{v}_2=\lambda_2\mathbf{v}_2$ with $\lambda_1\neq\lambda_2$. Show $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$.</p>
+      <textarea class="work" rows="8" placeholder="Key move: λ₁⟨v₁,v₂⟩ = ⟨Av₁,v₂⟩ = ⟨v₁,Av₂⟩ = λ₂⟨v₁,v₂⟩. Use A = Aᵀ to move A across."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$\lambda_1\langle\mathbf{v}_1,\mathbf{v}_2\rangle=\langle\lambda_1\mathbf{v}_1,\mathbf{v}_2\rangle=\langle A\mathbf{v}_1,\mathbf{v}_2\rangle$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">Since $A=A^\top$: $\langle A\mathbf{v}_1,\mathbf{v}_2\rangle=(A\mathbf{v}_1)^\top\mathbf{v}_2=\mathbf{v}_1^\top A^\top\mathbf{v}_2=\langle\mathbf{v}_1,A\mathbf{v}_2\rangle=\lambda_2\langle\mathbf{v}_1,\mathbf{v}_2\rangle$.</span></div>
+        <div class="step"><span class="step-n">3</span><span class="step-body">$(\lambda_1-\lambda_2)\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$. Since $\lambda_1\neq\lambda_2$: $\langle\mathbf{v}_1,\mathbf{v}_2\rangle=0$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-6 — Orthogonal matrix preserves norm</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW10 §7.1</span></div></div>
+    <div class="qbody">
+      <p>Let $P$ be orthogonal. Show $\|P\mathbf{u}\|=\|\mathbf{u}\|$ for all $\mathbf{u}\in\mathbb{R}^n$.</p>
+      <textarea class="work" rows="6" placeholder="‖Pu‖² = ⟨Pu, Pu⟩ = (Pu)ᵀ(Pu) = uᵀPᵀPu. Use PᵀP = I."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">1</span><span class="step-body">$\|P\mathbf{u}\|^2=(P\mathbf{u})^\top(P\mathbf{u})=\mathbf{u}^\top P^\top P\mathbf{u}=\mathbf{u}^\top I\mathbf{u}=\|\mathbf{u}\|^2$.</span></div>
+        <div class="step"><span class="step-n">2</span><span class="step-body">Taking square roots: $\|P\mathbf{u}\|=\|\mathbf{u}\|$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="qcard">
+    <div class="qcard-hd"><span class="qcard-num">P-7 — T is linear</span><div style="display:flex;gap:8px"><span class="qcard-hw">HW5 Q2</span></div></div>
+    <div class="qbody">
+      <p>Show $T: M_{2\times2}\to M_{2\times2}$ defined by $T(A)=A^\top-A$ is a linear transformation.</p>
+      <textarea class="work" rows="6" placeholder="Check T(A+B) = T(A)+T(B). Check T(cA) = cT(A). Use properties of transpose."></textarea>
+      <div class="rev-wrap"><button class="rev-btn" onclick="tog(this)"><span class="chev">▶</span> Show Proof</button><div class="ans"><div class="ans-lbl">Proof</div>
+        <div class="step"><span class="step-n">+</span><span class="step-body">$T(A+B)=(A+B)^\top-(A+B)=A^\top+B^\top-A-B=(A^\top-A)+(B^\top-B)=T(A)+T(B)$.</span></div>
+        <div class="step"><span class="step-n">×</span><span class="step-body">$T(cA)=(cA)^\top-cA=cA^\top-cA=c(A^\top-A)=cT(A)$. $\square$</span></div>
+      </div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- Score bar -->
+<div class="score-bar">
+  <div style="display:flex;align-items:baseline;gap:8px">
+    <span class="score-l">Practice Score</span>
+    <span class="score-v" id="sv">0 / 0</span>
+    <span style="font-size:13px;color:var(--text3)" id="sp"></span>
+  </div>
+  <button class="score-reset" onclick="resetAll()">Reset all</button>
+</div>
+
+<script>
+// Sidebar active
+function mark(el){document.querySelectorAll('.sb-link').forEach(l=>l.classList.remove('active'));el.classList.add('active')}
+// Scroll spy
+const topics=document.querySelectorAll('.topic');
+const sbLinks=document.querySelectorAll('.sb-link');
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){sbLinks.forEach(l=>l.classList.remove('active'));const link=document.querySelector('.sb-link[href="#'+e.target.id+'"]');if(link)link.classList.add('active');}})},{rootMargin:'-20% 0px -70% 0px'}).observe.call({observe:(t)=>topics.forEach(t2=>t2)})||topics.forEach(t=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){sbLinks.forEach(l=>l.classList.remove('active'));const link=document.querySelector('.sb-link[href="#'+e.target.id+'"]');if(link)link.classList.add('active');}})},{rootMargin:'-20% 0px -70% 0px'}).observe(t));
+// Reveal toggle
+function tog(btn){const box=btn.nextElementSibling;const open=box.classList.contains('show');box.classList.toggle('show',!open);btn.classList.toggle('open',!open);btn.querySelector('.chev').style.transform=open?'':'rotate(90deg)';}
+// Scoring
+const scores={};
+function dotf(btn,answer,id){
+  const correct=document.getElementById(id+'-ans').classList.contains('t')?'T':'F';
+  btn.closest('.tf-btns').querySelectorAll('.tfb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');scores[id]=(answer===correct);updateScore();
+}
+function mc(el,letter,gid){
+  const g=document.getElementById(gid);const correct=g.getAttribute('data-c');
+  g.querySelectorAll('li').forEach(li=>li.classList.remove('hit','miss'));
+  el.classList.add(letter===correct?'hit':'miss');scores[gid]=(letter===correct);updateScore();
+}
+function updateScore(){
+  const keys=Object.keys(scores);const total=keys.length;const correct=keys.filter(k=>scores[k]).length;
+  document.getElementById('prog-text').textContent=correct+' of '+total+' correct';
+  document.getElementById('sv').textContent=correct+' / '+total;
+  document.getElementById('sp').textContent=total>0?'('+Math.round(correct/total*100)+'%)':'';
+  document.getElementById('prog-fill').style.width=total>0?Math.round(correct/total*100)+'%':'0%';
+}
+function resetAll(){
+  Object.keys(scores).forEach(k=>delete scores[k]);
+  document.querySelectorAll('.choices li').forEach(li=>li.classList.remove('hit','miss'));
+  document.querySelectorAll('.tfb').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.ans,.ans-box').forEach(b=>b.classList.remove('show'));
+  document.querySelectorAll('.rev-btn').forEach(b=>{b.classList.remove('open');b.querySelector('.chev').style.transform='';});
+  document.querySelectorAll('.work').forEach(t=>t.value='');
+  updateScore();window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
